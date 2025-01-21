@@ -1,9 +1,8 @@
 import { Outlet } from 'react-router-dom';
 
-import '../../resources/css/pages/root.css';
+import '../resources/css/pages/root.css';
 
-import Header from '../../features/header/Header.jsx';
-import Footer from '../components/Footer';
+import Header from '../features/header/Header.jsx';
 
 function Root() {
 
@@ -13,7 +12,6 @@ function Root() {
             <main>
                 <Outlet />
             </main>
-            <Footer />
         </>
     )
 }

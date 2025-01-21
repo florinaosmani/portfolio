@@ -1,10 +1,10 @@
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 
-import Root from '../components/pages/Root';
-import Home from '../components/pages/Home';
-import Projects from '../components/pages/Projects';
-import Contact from '../components/pages/Contact';
-import Documentation from '../components/pages/Documentation';
+import Root from '../pages/Root';
+import Home from '../pages/Home';
+import Projects from '../pages/Projects';
+import Contact from '../pages/Contact';
+import Documentation from '../pages/Documentation/Documentation';
 
 import '../resources/css/app.css';
 

@@ -92,7 +92,7 @@ useEffect(()=>{
                             `}
                         </code>
                     </pre>
-                    <video src={headerVideo} type='video/mp4' autoPlay loop muted id='header-video' className={headerVideo}
+                    <video src={headerVideo} type='video/mp4' autoPlay loop muted id='header-video' className={classes.headerVideo}
                         aria-label='A video showing the website the user is currently visiting on the left, and the Console
                                     on the right. While the user is scrolling two messages pop up on the console: "Im scrolling"
                                     and "I removed an event listener. Once the user clicks on the Navigation button another message
