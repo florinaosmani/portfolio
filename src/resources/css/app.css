@@ -1,4 +1,4 @@
-/* reset style sheet */
+/* reset style sheet, copied from online and modified slightly */
 
 html {
     box-sizing: border-box;
@@ -15,7 +15,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   font-weight: normal;
 }
 
-ol, ul {
+ul {
   list-style: none;
 }
 
@@ -29,4 +29,5 @@ img {
 body {
   background-color: #FFF5E5;
   font-family: 'Oxanium', Verdana, sans-serif;
+  line-height: 2rem;
 }

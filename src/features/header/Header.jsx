@@ -1,4 +1,4 @@
-import '../../resources/css/features/header.css';
+import classes from '../../resources/css/features/header.module.css';
 
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -14,10 +14,8 @@ function Header () {
 
     useEffect(()=>{
         const handleScroll = () => {
-            setTimeout(() => {
                 dispatch(closeHeader());
-            },100);
-            //remove timeout when figure out animation???
+
         };
 
         if (isOpen) {
@@ -25,7 +23,9 @@ function Header () {
         }
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            if(isOpen) {
+                window.removeEventListener('scroll', handleScroll);
+            }
         };
 
     },[isOpen]);
@@ -37,23 +37,28 @@ function Header () {
 
     if (isOpen) {
         return (
-            <header>
-                <nav>
+            <header className={classes.header}>
+                <nav className={classes.nav}>
                     <ul>
                         <li>
                             <NavLink 
                                 to='/' 
-                                className={({ isActive }) => isActive ? 'nav active' : 'nav'}>
+                                className={({ isActive }) => `${classes.navLink} ${isActive ? classes.active : ''}`}>
                                 Home
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='projects' className='nav'>
+                            <NavLink to='projects' className={({ isActive }) => `${classes.navLink} ${isActive ? classes.active : ''}`}>
                                 Projects
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='contact' className='nav'>
+                            <NavLink to='documentation' className={({ isActive }) => `${classes.navLink} ${isActive ? classes.active : ''}`}>
+                                Documentation
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='contact' className={({ isActive }) => `${classes.navLink} ${isActive ? classes.active : ''}`}>
                                 Contact
                             </NavLink>
                         </li>
@@ -63,9 +68,9 @@ function Header () {
         )
     } else {
         return (
-            <header>
-                <nav>
-                    <div className='pullout-tab' onClick={handleClick}>
+            <header className={classes.header}>
+                <nav className={classes.nav}>
+                    <div className={classes.pulloutTab} onClick={handleClick}>
                         <button>
                             Navigation
                         </button>

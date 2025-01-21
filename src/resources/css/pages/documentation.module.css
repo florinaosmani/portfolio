@@ -1,0 +1,65 @@
+.section {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.section h1,
+.introduction p,
+.section h2 {
+    margin-bottom: 2rem;
+}
+
+.section h1 {
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.section ol {
+    width: 100%;
+    list-style-position: inside;
+}
+
+.scrollToTopContainer {
+    /* todo: figure out how to make it actually centered */
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border: 1px solid black;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.scrollToTop {
+    background-color: #FFF5E5;
+    font-size: 2rem;
+    line-height: normal;
+}
+
+.section a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+
+.section a:hover {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.p {
+    width: 75%;
+    margin: auto auto 1rem auto;
+}
+
+.example {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.example pre {
+    width: fit-content;
+}
+
+.headerVideo {
+    width: 45%;
+}

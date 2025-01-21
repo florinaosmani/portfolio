@@ -1,5 +1,7 @@
 main {
-    /* why didnt i use margin? don't change this please,
-     else the header will also somehow have a margin top! i am very confused */
-    padding-top: 3rem;
+    /* why didnt i use margin? 
+    don't change this please,
+    else the header will also somehow have a margin top! i am very confused
+    todo: figure out what is going on??*/
+    padding-top: 5rem;
 }

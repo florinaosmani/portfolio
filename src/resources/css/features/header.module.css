@@ -1,16 +1,16 @@
-header {
+.header {
     height: 3rem;
     position: fixed;
     width: 100%;
     z-index: 1000;
 }
 
-nav {
+.nav {
     height: inherit;
     width: inherit;
 }
 
-ul {
+.header ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -18,16 +18,16 @@ ul {
     background-color: #FFF5E5;
 }
 
-li {
+.header li {
     list-style-type: none;
 }
 
-.nav {
+.navLink {
     text-decoration: none;
     color: black;
 }
 
-.nav:hover {
+.navLink:hover {
     font-size: 1.25rem;
     font-weight: 500;
 }
@@ -37,13 +37,13 @@ li {
     font-size: 1.25rem;
 }
 
-.pullout-tab {
+.pulloutTab {
     height: inherit;
     width: inherit;
-    text-align: center;
+    margin-left: 2rem;
 }
 
-button {
+.header button {
     height: 2.5rem;
     background-color: #FFF5E5;
     font-family: 'Oxanium', Verdana, sans-serif;
@@ -54,6 +54,8 @@ button {
     border-radius: 0 0 10% 10%;
 }
 
-button:hover {
-    background-color: #ffeac8;
+.header button:hover {
+    font-weight: 700;
+    border: 3px solid black;
+    border-top: none;
 }

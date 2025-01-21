@@ -11,5 +11,3 @@ createRoot(document.getElementById('root')).render(
     </Provider>
   </StrictMode>
 )
-
-store.subscribe(render);
