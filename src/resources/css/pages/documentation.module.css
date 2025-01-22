@@ -14,9 +14,8 @@
     font-size: 2rem;
 }
 
-.section ol {
+.section ul {
     width: 100%;
-    list-style-position: inside;
 }
 
 .scrollToTopContainer {
@@ -51,15 +50,20 @@
     margin: auto auto 1rem auto;
 }
 
-.example {
+.codeVideo {
     display: flex;
     justify-content: space-evenly;
 }
 
-.example pre {
+.codeVideo pre {
     width: fit-content;
 }
 
 .headerVideo {
     width: 45%;
+}
+
+.code {
+    display: flex;
+    justify-content: center;
 }
