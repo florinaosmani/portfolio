@@ -1,0 +1,8 @@
+.introduction p {
+    text-align: center;
+}
+
+.introduction {
+    width: 75%;
+    margin: 0 auto 3rem auto;
+}

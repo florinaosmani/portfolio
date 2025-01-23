@@ -48,11 +48,6 @@ function Header () {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='projects' className={({ isActive }) => `${classes.navLink} ${isActive ? classes.active : ''}`}>
-                                Projects
-                            </NavLink>
-                        </li>
-                        <li>
                             <NavLink to='documentation' className={({ isActive }) => `${classes.navLink} ${isActive ? classes.active : ''}`}>
                                 Documentation
                             </NavLink>

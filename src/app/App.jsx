@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 
 import Root from '../pages/Root';
 import Home from '../pages/Home';
-import Projects from '../pages/projects/Projects';
+import Projects from '../components/projects/Projects';
 import Contact from '../pages/Contact';
 import Documentation from '../pages/documentation/Documentation';
 import PromptGenerator from '../features/promptGenerator/PromptGenerator';
@@ -13,7 +13,6 @@ import '../resources/css/app.css';
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={ <Root /> } >
     <Route index element={ <Home /> } />
-    <Route path='projects' element={ <Projects /> } />
     <Route path='prompt-generator' element={ <PromptGenerator /> } />
     <Route path='poemify' element={ <Poemify /> } />
     <Route path='contact' element={ <Contact /> } />

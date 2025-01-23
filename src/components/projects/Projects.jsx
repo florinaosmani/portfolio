@@ -1,4 +1,4 @@
-import classes from '../../resources/css/pages/projects/projects.module.css';
+import classes from '../../resources/css/components/projects/projects.module.css';
 
 import projectsContent from './projectsContent';
 
