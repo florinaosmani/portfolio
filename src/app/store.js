@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import headerReducer from '../features/header/headerSlice.js';
-import wordReducer from '../features/promptGenerator/wordSlice.js';
+import sentenceReducer from '../features/promptGenerator/sentenceSlice.js';
 
 const store = configureStore({
     reducer: {
         header: headerReducer,
-        word: wordReducer,
+        sentence: sentenceReducer,
         
     }
 });

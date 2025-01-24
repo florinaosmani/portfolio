@@ -1,0 +1,26 @@
+.word span {
+    border: 2px solid black;
+}
+
+.word {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.edit {
+    top: 0;
+    left: 0;
+}
+
+.remove {
+    bottom: 0;
+    left: 0;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.notHidden {
+    opacity: 1;
+}

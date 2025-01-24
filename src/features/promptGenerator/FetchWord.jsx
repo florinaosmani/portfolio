@@ -1,21 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import classes from '../../resources/css/features/promptGenerator/word.module.css';
+import classes from '../../resources/css/features/promptGenerator/fetchWord.module.css';
 
-import { makeEditable, makeNotEditable, showButtons, hideButtons, removeWord } from './sentenceSlice';
+import { lockToggle , showButtons, hideButtons, removeWord } from './sentenceSlice';
 
-function Word ({ children, index }) {
-    const { isEditable, isHidden } = useSelector(state => state.sentence.sentence[index]);
+function FetchWord ({ index, children}) {
+    const { isLocked, isHidden } = useSelector(state => state.sentence.sentence[index]);
     const dispatch = useDispatch();
 
     const handleEditClick = () => {
-        dispatch(makeEditable(index));
-    };
-
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            dispatch(makeNotEditable(index));
-        }
+        dispatch(lockToggle(index));
     };
 
     const handleMouseEnter = () => {
@@ -31,15 +25,15 @@ function Word ({ children, index }) {
     }
 
     return (
-        <div className={classes.word}
+        <div
+        className={classes.word}
         onMouseLeave={handleMouseLeave}>  
             <button
             onClick={handleEditClick}
             className={isHidden? classes.hidden : classes.notHidden}>
-                Edit
+                {isLocked ? 'Unlock' : 'Lock'}
             </button>
-            <span contentEditable={isEditable}
-            onKeyDown={handleKeyDown}
+            <span
             onMouseEnter={handleMouseEnter}>
                 {children}
             </span>
@@ -52,4 +46,4 @@ function Word ({ children, index }) {
     );
 }
 
-export default Word;
+export default FetchWord;
