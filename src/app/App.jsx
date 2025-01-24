@@ -1,12 +1,11 @@
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 
-import Root from '../pages/Root';
-import Home from '../pages/Home';
-import Projects from '../components/projects/Projects';
-import Contact from '../pages/Contact';
-import Documentation from '../pages/documentation/Documentation';
-import PromptGenerator from '../features/promptGenerator/PromptGenerator';
-import Poemify from '../features/poemify/Poemify';
+import Root from '../pages/Root.jsx';
+import Home from '../pages/Home.jsx';
+import Contact from '../pages/.jsx';
+import Documentation from '../pages/documentation/Documentation.jsx';
+import PromptGenerator from '../features/promptGenerator/PromptGenerator.jsx';
+import Poemify from '../features/poemify/Poemify.jsx';
 
 import '../resources/css/app.css';
 

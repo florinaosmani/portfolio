@@ -7,8 +7,6 @@ import Word from './Word';
 
 import { inputValueChange, addWord, addFetchWord } from '../promptGenerator/sentenceSlice';
 
-const MY_KEY= config.MY_KEY;
-
 function PromptGenerator () {
     const { inputValue, sentence } = useSelector(state => state.sentence);
     const dispatch = useDispatch();
@@ -29,7 +27,7 @@ function PromptGenerator () {
 
     return (
         <div className={classes.promptGenerator}>
-            <h1>Prompt Generator </h1>
+            <h1>Prompt Generator</h1>
             <div>
                 <div>
                     <form
