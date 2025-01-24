@@ -2,7 +2,6 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 
 import Root from '../pages/Root';
 import Home from '../pages/Home';
-import Projects from '../components/projects/Projects';
 import Contact from '../pages/Contact';
 import Documentation from '../pages/documentation/Documentation';
 import PromptGenerator from '../features/promptGenerator/PromptGenerator';
