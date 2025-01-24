@@ -3,7 +3,7 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 import Root from '../pages/Root.jsx';
 import Home from '../pages/Home.jsx';
 import Contact from '../pages/Contact.jsx';
-import Documentation from '../pages/documentation/Documentation.jsx';
+import Documentation from '../pages/temp/Documentation.js';
 import PromptGenerator from '../features/promptGenerator/PromptGenerator.jsx';
 import Poemify from '../features/poemify/Poemify.jsx';
 
