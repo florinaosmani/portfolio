@@ -40,7 +40,8 @@ function FetchWord ({ index, children}) {
             <span
             onMouseEnter={handleMouseEnter}
             onClick={handleFetchWord}>
-                {content === '' ? children : content}
+                {children}
+                word: {content}
                 hasError? : {hasError}
                 isLoading ?: {isLoading}
             </span>

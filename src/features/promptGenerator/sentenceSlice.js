@@ -7,10 +7,10 @@ export const fetchWord = createAsyncThunk(
         try {
             const response = await fetch('/.netlify/functions/fetchWord');
             if (response.ok) {
-                const word = response.json();
-                return word;
+                const data = await response.json();
+                return data.data.word;
             }
-            throw new Error('Failed to fetch random word');
+            return rejectWithValue("Couldn't fetch a word.");
         } catch (error) {
             return rejectWithValue('Something went wrong :(');
         }
