@@ -28,15 +28,22 @@ function PromptGenerator () {
         dispatch(removeAll());
     };
 
-    const handleFetchWord = () => {
-        sentence.forEach(wordObj => {
+    const handleFetchWord = async () => {
+        const fetchPromises = sentence.map(wordObj => {
             if (wordObj.type === 'fetchWord' && !wordObj.isLocked) {
-                dispatch(fetchWord({
+                return dispatch(fetchWord({
                     index: wordObj.keyId,
                     type: wordObj.wordType.toLowerCase()
-                }));
+                })).unwrap();
             }
-        })
+        });
+        
+        try {
+            const results = await Promise.all(fetchPromises.filter(item => item !== undefined));
+        } catch(e) {
+            console.log('error: ' + e.message);
+        }
+        
     };
 
     if (hasError) {
