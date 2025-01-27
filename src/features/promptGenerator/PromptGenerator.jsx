@@ -5,10 +5,10 @@ import classes from '../../resources/css/features/promptGenerator/promptGenerato
 import FetchWord from './FetchWord';
 import Word from './Word';
 
-import { inputValueChange, addWord, addFetchWord } from '../promptGenerator/sentenceSlice';
+import { inputValueChange, addWord, addFetchWord, fetchWord, removeAll } from '../promptGenerator/sentenceSlice';
 
 function PromptGenerator () {
-    const { inputValue, sentence } = useSelector(state => state.sentence);
+    const { inputValue, sentence, hasError, isLoading} = useSelector(state => state.sentence);
     const dispatch = useDispatch();
 
     const handleChange = (event) => {
@@ -21,9 +21,78 @@ function PromptGenerator () {
     };
 
     const handleClickWordType = (event) => {
-        event.preventDefault();
         dispatch(addFetchWord(event.target.value));
     };
+
+    const handleRemoveAll = () => {
+        dispatch(removeAll());
+    };
+
+    const handleFetchWord = () => {
+        sentence.forEach(wordObj => {
+            if (wordObj.type === 'fetchWord' && !wordObj.isLocked) {
+                dispatch(fetchWord({
+                    index: wordObj.keyId,
+                    type: wordObj.wordType.toLowerCase()
+                }));
+            }
+        })
+    };
+
+    if (hasError) {
+        return (
+            <div className={classes.promptGenerator}>
+                <h1>Prompt Generator</h1>
+                <div>
+                    <div>
+                        <form
+                        onSubmit={handleSubmit}>
+                            <input type='text'
+                            value={inputValue}
+                            onChange={handleChange}
+                            id='input'/>
+                            <button type='submit'>
+                                Add word
+                            </button>
+                        </form>
+                        <div>
+                            <button value='Noun'
+                            onClick={handleClickWordType}>
+                                Noun
+                            </button>
+                            <button value='Verb'
+                            onClick={handleClickWordType}>
+                                Verb
+                            </button>
+                            <button value='Adjective'
+                            onClick={handleClickWordType}>
+                                Adjective
+                            </button>
+                            <button value='Adverb'
+                            onClick={handleClickWordType}>
+                                Adverb
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <button>
+                            GO
+                        </button>
+                        <button
+                        onClick={handleRemoveAll}>
+                        Remove all
+                    </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <p>
+                        Something went wrong :(! Try reloading the page!
+                    </p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className={classes.promptGenerator}>
@@ -60,8 +129,13 @@ function PromptGenerator () {
                     </div>
                 </div>
                 <div>
-                    <button>
-                        Go
+                    <button
+                    onClick={handleFetchWord}>
+                        {isLoading ? 'Loading' : 'GO'}
+                    </button>
+                    <button
+                    onClick={handleRemoveAll}>
+                        Remove all
                     </button>
                 </div>
             </div>

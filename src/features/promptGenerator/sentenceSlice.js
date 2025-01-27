@@ -3,12 +3,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchWord = createAsyncThunk(
     'sentence/fetchWord',
-    async (arg, { rejectWithValue }) => {
+    async ({ index, type }, { rejectWithValue }) => {
         try {
-            const response = await fetch('/.netlify/functions/fetchWord');
+            const response = await fetch(`/.netlify/functions/fetchWord?type=${type}`);
             if (response.ok) {
                 const data = await response.json();
-                return data.data.word;
+                return {
+                    index: index,
+                    content: data.data.word};
             }
             return rejectWithValue("Couldn't fetch a word.");
         } catch (error) {
@@ -22,6 +24,8 @@ const sentenceSlice = createSlice({
     initialState: {
         inputValue: '',
         sentence: [],
+        hasError: false,
+        isLoading: false,
     },
     reducers: {
         inputValueChange: (state, action) => {
@@ -51,8 +55,7 @@ const sentenceSlice = createSlice({
                 keyId: keyId,
                 isLocked: false,
                 isHidden: true,
-                isLoading: false,
-                hasError: false,
+                isEditable: false,
             })
         },
         removeWord: (state, action) => {
@@ -79,24 +82,27 @@ const sentenceSlice = createSlice({
         hideButtons: (state, action) => {
             state.sentence[action.payload].isHidden = true;
         },
+        removeAll: (state) => {
+            state.sentence = [];
+        },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchWord.pending, (state, action) => {
-                state.sentence[action.meta.arg].isLoading = true;
-                state.sentence[action.meta.arg].hasError = false;
+            .addCase(fetchWord.pending, (state) => {
+                state.isLoading = true;
+                state.hasError = false;
             })
             .addCase(fetchWord.fulfilled, (state, action) => {
-                state.sentence[action.meta.arg].isLoading = false;
-                state.sentence[action.meta.arg].hasError = false;
-                state.sentence[action.meta.arg].content = action.payload;
+                state.isLoading = false;
+                state.hasError = false;
+                state.sentence[action.payload.index].content = action.payload.content;
             })
-            .addCase(fetchWord.rejected, (state, action) => {
-                state.sentence[action.meta.arg].isLoading = false;
-                state.sentence[action.meta.arg].hasError = false;
+            .addCase(fetchWord.rejected, (state) => {
+                state.isLoading = false;
+                state.hasError = true;
             })
     },
 });
 
-export const { inputValueChange, addWord, addFetchWord, removeWord, lockToggle, makeEditable, makeNotEditable, showButtons, hideButtons } = sentenceSlice.actions;
+export const { inputValueChange, addWord, addFetchWord, removeWord, lockToggle, makeEditable, makeNotEditable, showButtons, hideButtons, removeAll } = sentenceSlice.actions;
 export default sentenceSlice.reducer;

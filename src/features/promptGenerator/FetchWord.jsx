@@ -2,13 +2,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import classes from '../../resources/css/features/promptGenerator/fetchWord.module.css';
 
-import { lockToggle , showButtons, hideButtons, removeWord, fetchWord } from './sentenceSlice';
+import { lockToggle , showButtons, hideButtons, removeWord, makeEditable, makeNotEditable } from './sentenceSlice';
 
 function FetchWord ({ index, children}) {
-    const { isLocked, isHidden, content, hasError, isLoading } = useSelector(state => state.sentence.sentence[index]);
+    const { isLocked, isHidden, content, isEditable } = useSelector(state => state.sentence.sentence[index]);
     const dispatch = useDispatch();
 
-    const handleEditClick = () => {
+    const handleLockClick = () => {
         dispatch(lockToggle(index));
     };
 
@@ -22,29 +22,38 @@ function FetchWord ({ index, children}) {
 
     const handleRemove = () => {
         dispatch(removeWord(index));
-    }
+    };
 
-    const handleFetchWord = () => {
-        dispatch(fetchWord(index));
-    }
+    const handleEditClick = () => {
+            dispatch(makeEditable(index));
+        };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            dispatch(makeNotEditable(index));
+        }
+    };
 
     return (
         <div
         className={classes.word}
-        onMouseLeave={handleMouseLeave}>  
+        onMouseLeave={handleMouseLeave}>
             <button
-            onClick={handleEditClick}
+            onClick={handleLockClick}
             className={isHidden? classes.hidden : classes.notHidden}>
                 {isLocked ? 'Unlock' : 'Lock'}
             </button>
             <span
-            onMouseEnter={handleMouseEnter}
-            onClick={handleFetchWord}>
-                {children}
-                word: {content}
-                hasError? : {hasError}
-                isLoading ?: {isLoading}
+            contentEditable={isEditable}
+            onKeyDown={handleKeyDown}
+            onMouseEnter={handleMouseEnter}>
+                {content === ''? children : content}
             </span>
+            <button
+                onClick={handleEditClick}
+                className={isHidden? classes.hidden : classes.notHidden}>
+                    Edit
+            </button>
             <button
             className={isHidden? classes.hidden : classes.notHidden}
             onClick={handleRemove}>

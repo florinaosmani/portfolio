@@ -1,15 +1,8 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
-console.log(process.env.MY_KEY);
 export const handler = async (event, context)  => {
-
-    console.log(process.env.MY_KEY);
-    
     try {
         const apiKey = process.env.MY_KEY;
-        const url = 'https://api.api-ninjas.com/v1/randomword';
-        const type = 'noun';
+        const { type } = event.queryStringParameters;
+        const url = `https://api.api-ninjas.com/v1/randomword?type=${type}`;
         
         const response = await fetch(url, {
             headers: {
@@ -43,5 +36,3 @@ export const handler = async (event, context)  => {
         };
     }
 }
-
-handler();
