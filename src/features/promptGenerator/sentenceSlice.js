@@ -1,4 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+
+export const fetchWord = createAsyncThunk(
+    'sentence/fetchWord',
+    async (arg, { rejectWithValue }) => {
+        try {
+            const response = await fetch('/.netlify/functions/fetchWord');
+            if (response.ok) {
+                const word = response.json();
+                return word;
+            }
+            throw new Error('Failed to fetch random word');
+        } catch (error) {
+            return rejectWithValue('Something went wrong :(');
+        }
+    }
+);
 
 const sentenceSlice = createSlice({
     name: 'sentence',
@@ -34,6 +51,8 @@ const sentenceSlice = createSlice({
                 keyId: keyId,
                 isLocked: false,
                 isHidden: true,
+                isLoading: false,
+                hasError: false,
             })
         },
         removeWord: (state, action) => {
@@ -60,6 +79,22 @@ const sentenceSlice = createSlice({
         hideButtons: (state, action) => {
             state.sentence[action.payload].isHidden = true;
         },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchWord.pending, (state, action) => {
+                state.sentence[action.meta.arg].isLoading = true;
+                state.sentence[action.meta.arg].hasError = false;
+            })
+            .addCase(fetchWord.fulfilled, (state, action) => {
+                state.sentence[action.meta.arg].isLoading = false;
+                state.sentence[action.meta.arg].hasError = false;
+                state.sentence[action.meta.arg].content = action.payload;
+            })
+            .addCase(fetchWord.rejected, (state, action) => {
+                state.sentence[action.meta.arg].isLoading = false;
+                state.sentence[action.meta.arg].hasError = false;
+            })
     },
 });
 

@@ -2,10 +2,10 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import classes from '../../resources/css/features/promptGenerator/fetchWord.module.css';
 
-import { lockToggle , showButtons, hideButtons, removeWord } from './sentenceSlice';
+import { lockToggle , showButtons, hideButtons, removeWord, fetchWord } from './sentenceSlice';
 
 function FetchWord ({ index, children}) {
-    const { isLocked, isHidden } = useSelector(state => state.sentence.sentence[index]);
+    const { isLocked, isHidden, content, hasError, isLoading } = useSelector(state => state.sentence.sentence[index]);
     const dispatch = useDispatch();
 
     const handleEditClick = () => {
@@ -24,6 +24,10 @@ function FetchWord ({ index, children}) {
         dispatch(removeWord(index));
     }
 
+    const handleFetchWord = () => {
+        dispatch(fetchWord(index));
+    }
+
     return (
         <div
         className={classes.word}
@@ -34,8 +38,11 @@ function FetchWord ({ index, children}) {
                 {isLocked ? 'Unlock' : 'Lock'}
             </button>
             <span
-            onMouseEnter={handleMouseEnter}>
-                {children}
+            onMouseEnter={handleMouseEnter}
+            onClick={handleFetchWord}>
+                {content === '' ? children : content}
+                hasError? : {hasError}
+                isLoading ?: {isLoading}
             </span>
             <button
             className={isHidden? classes.hidden : classes.notHidden}
