@@ -11,8 +11,14 @@ function Project () {
                 <NavLink className={classes.project}
                 to={project.navLink}
                 key={`project_${index}`}>
-                    <img src={project.imgSrc}
-                    alt={project.altText} />
+                    <video
+                    aria-label={project.altText}
+                    autoPlay
+                    loop
+                    muted>
+                        <source src={project.videoSrc} type='video/mp4'/>
+                        Video not showing..
+                    </video>
                     <div className={classes.text}>
                         <div className={classes.backgroundH2}>
                             <h2>

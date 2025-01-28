@@ -1,18 +1,18 @@
-import picture from '../../resources/media/placeholder.jpg';
+import promptGenerator from '../../resources/media/promptGenerator.mp4';
 
 /* todo: fill in altTexts and put in actual images */
 
 const projectsContent = [
     {
         header: 'Prompt Generator',
-        imgSrc: picture,
+        videoSrc: promptGenerator,
         altText: 'fill in later',
         hoverText: 'Create your own personalized prompts.',
         navLink: 'prompt-generator',
     },
     {
         header: 'Poemify',
-        imgSrc: picture,
+        videoSrc: promptGenerator,
         altText: 'fill in later',
         hoverText: 'Create your own poem by chosing words from a book excerpt.',
         navLink: 'poemify',

@@ -11,8 +11,9 @@
     position: relative;
 }
 
-.project img {
-    object-fit: cover;
+.project video {
+    object-fit: contain;
+    width: 100%;
 }
 
 .text {
@@ -29,7 +30,7 @@
 .backgroundP {
     width: 100%;
     height: fit-content;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
 }
 
