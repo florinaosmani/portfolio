@@ -4,7 +4,7 @@ import classes from '../../resources/css/features/promptGenerator/fetchWord.modu
 
 import { lockToggle , showButtons, hideButtons, removeWord, makeEditable, makeNotEditable } from './sentenceSlice';
 
-function FetchWord ({ index, children}) {
+function FetchWord ({ index, type}) {
     const { isLocked, isHidden, content, isEditable } = useSelector(state => state.sentence.sentence[index]);
     const dispatch = useDispatch();
 
@@ -25,14 +25,20 @@ function FetchWord ({ index, children}) {
     };
 
     const handleEditClick = () => {
+        if (!isEditable) {
             dispatch(makeEditable(index));
-        };
+        } else {
+            dispatch(makeNotEditable(index));
+        }
+    };
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             dispatch(makeNotEditable(index));
         }
     };
+    
+    const lCType = type.toLowerCase();
 
     return (
         <div
@@ -46,12 +52,14 @@ function FetchWord ({ index, children}) {
             <span
             contentEditable={isEditable}
             onKeyDown={handleKeyDown}
-            onMouseEnter={handleMouseEnter}>
-                {content === ''? children : content}
+            onMouseEnter={handleMouseEnter}
+            className={classes[lCType]}>
+                {content === ''? type : content}
             </span>
             <button
                 onClick={handleEditClick}
-                className={isHidden? classes.hidden : classes.notHidden}>
+                className={isHidden? classes.hidden : classes.notHidden}
+                style={isEditable ? {fontWeight: '600'}: {fontWeight: '400'}}>
                     Edit
             </button>
             <button

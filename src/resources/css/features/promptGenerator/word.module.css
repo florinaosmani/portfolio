@@ -1,5 +1,7 @@
 .word span {
     border: 2px solid black;
+    padding: 1px 6px 1px 6px;
+    margin-right: 0.2rem;
 }
 
 .word {
@@ -23,4 +25,15 @@
 
 .notHidden {
     opacity: 1;
+}
+
+.word button {
+    background-color:  #ffedd0;
+    margin: 1px 0.2rem 1px 0;
+    border-radius: 3px;
+}
+
+.word button:hover {
+    font-weight: 600;
+    box-shadow: 1px 1px 1px black;
 }

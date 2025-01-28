@@ -9,7 +9,11 @@ function Word ({ children, index }) {
     const dispatch = useDispatch();
 
     const handleEditClick = () => {
-        dispatch(makeEditable(index));
+        if (!isEditable) {
+            dispatch(makeEditable(index));
+        } else {
+            dispatch(makeNotEditable(index));
+        }
     };
 
     const handleKeyDown = (event) => {
@@ -35,7 +39,8 @@ function Word ({ children, index }) {
         onMouseLeave={handleMouseLeave}>  
             <button
             onClick={handleEditClick}
-            className={isHidden? classes.hidden : classes.notHidden}>
+            className={isHidden? classes.hidden : classes.notHidden}
+            style={isEditable ? {fontWeight: '600'}: {fontWeight: '400'}}>
                 Edit
             </button>
             <span contentEditable={isEditable}

@@ -1,0 +1,54 @@
+/* 
+colors: from prism.js solarizedlight
+just so its matching
+
+#b58900 yellow
+#859900 green
+#2aa198 cyan
+#dc322f red
+ */
+
+.promptGenerator {
+    text-align: center;
+}
+
+.button,
+.wordType,
+.promptGenerator input {
+    font-family: 'Oxanium', Verdana, sans-serif;;
+    font-size: 1rem;
+    border-radius: 3px;
+    margin: 0.5rem;
+    width: 7rem;
+}
+
+.button:hover,
+.wordType:hover {
+    font-weight: 600;
+    box-shadow: 2px 2px 2px black;
+}
+
+.button {
+    background-color: #ffedd0;
+}
+
+.wordType {
+    border: 0px;
+    padding: 3px 9px 3px 9px;
+}
+
+.noun {
+    background-color: #dc322f;
+}
+
+.verb {
+    background-color: #2aa198;
+}
+
+.adjective {
+    background-color: #859900;
+}
+
+.adverb {
+    background-color: #b58900;
+}
