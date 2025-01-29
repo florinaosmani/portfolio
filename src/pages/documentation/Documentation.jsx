@@ -9,9 +9,7 @@ import { useEffect } from 'react';
 import content from './content';
 import Section from './Section';
 
-import headerVideo from '../../resources/media/header.mp4';
-
-function DocumentationTry() {
+function Documentation() {
 
     useEffect(() => {
         Prism.highlightAll();
@@ -56,4 +54,4 @@ function DocumentationTry() {
     )
 }
 
-export default DocumentationTry;
+export default Documentation;

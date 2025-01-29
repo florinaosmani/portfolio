@@ -1,8 +1,50 @@
-.introduction p {
+.home {
     text-align: center;
 }
 
 .introduction {
     width: 75%;
     margin: 0 auto 3rem auto;
+}
+
+.inline h1,
+.inline p {
+    display: inline;
+}
+
+.inline h1 {
+    margin-left: 1rem;
+}
+
+.inline {
+    margin-bottom: 3rem;
+}
+
+.introduction a {
+    color: black;
+    font-weight: 500;
+}
+
+.introduction a:hover {
+    font-weight: 700;
+}
+
+.icons i {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.icons {
+    margin-top: 2rem;
+}
+
+.projectsContainer {
+    display: flex;    
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.home h2 {
+    margin-bottom: 3rem;
+    font-size: 2rem;
 }

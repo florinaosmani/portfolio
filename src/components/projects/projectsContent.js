@@ -3,7 +3,7 @@ import promptGenerator from '../../resources/media/promptGenerator.mp4';
 /* todo: fill in altTexts and put in actual images */
 
 const projectsContent = [
-    {
+    {   
         header: 'Prompt Generator',
         videoSrc: promptGenerator,
         altText: 'fill in later',
