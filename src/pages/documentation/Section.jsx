@@ -47,6 +47,21 @@ function Section({ section }) {
                             </pre>
                             </div>
                             );
+                    case 'code-code':
+                        return (
+                            <div className={classes.codeCode} key={`cc_${index}`}>
+                                <pre>
+                                    <code className={pieceOfContent.data.language1}>
+                                        {pieceOfContent.data.code1}
+                                    </code>
+                                </pre>
+                                <pre>
+                                    <code className={pieceOfContent.data.language2}>
+                                        {pieceOfContent.data.code2}
+                                    </code>
+                                </pre>
+                            </div>
+                        );
                     default: 
                         return null;
                 }

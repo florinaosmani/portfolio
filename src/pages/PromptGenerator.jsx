@@ -5,7 +5,7 @@ import classes from '../resources/css/pages/promptGenerator.module.css';
 import FetchWord from '../features/promptGenerator/FetchWord';
 import Word from '../features/promptGenerator/Word';
 
-import { inputValueChange, addWord, addFetchWord, fetchWord, removeAll } from '../features/promptGenerator/sentenceSlice';
+import { inputValueChange, addWord, addFetchWord, fetchWord, removeAll, updateAll } from '../features/promptGenerator/sentenceSlice';
 
 function PromptGenerator () {
     const { inputValue, sentence, hasError, isLoading} = useSelector(state => state.sentence);
@@ -33,7 +33,7 @@ function PromptGenerator () {
         dispatch(removeAll());
     };
 
-    const handleFetchWord = async () => {
+    /* const handleFetchWord = async () => {
         const fetchPromises = sentence.map(wordObj => {
             if (wordObj.type === 'fetchWord' && !wordObj.isLocked) {
                 return dispatch(fetchWord({
@@ -49,6 +49,28 @@ function PromptGenerator () {
             console.log('error: ' + e.message);
         }
         
+    }; */
+
+   /*  const handleFetchWord = () => {
+        sentence.map(wordObj => {
+            if (wordObj.type === 'fetchWord' && !wordObj.isLocked) {
+                return dispatch(fetchWord({
+                    index: wordObj.keyId,
+                    type: wordObj.wordType.toLowerCase()
+        }))}}
+                );
+    }; */
+
+    const handleFetchWord = async () => {
+        const fetchWords = sentence.map(wordObj => {
+            if (wordObj.type === 'fetchWord' && !wordObj.isLocked) {
+                return dispatch(fetchWord({
+                    index: wordObj.keyId,
+                    type: wordObj.wordType.toLowerCase()
+                }));
+            }
+        });
+        Promise.all(fetchWords).then(()=>dispatch(updateAll()));
     };
 
     if (!hasError) {

@@ -20,12 +20,10 @@
     border: 1px solid black;
     width: 2.5rem;
     height: 2.5rem;
-}
-
-.scrollToTop {
-    background-color: #FFF5E5;
-    font-size: 2rem;
-    line-height: normal;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: #ffedd0;
 }
 
 .section a {
@@ -40,8 +38,9 @@
 }
 
 .p {
-    width: 75%;
+    width: 85%;
     margin: auto auto 1rem auto;
+    text-align:start;
 }
 
 .codeVideo {
@@ -60,4 +59,9 @@
 .code {
     display: flex;
     justify-content: center;
+}
+
+.codeCode {
+    display: flex;
+    justify-content: space-around;
 }
