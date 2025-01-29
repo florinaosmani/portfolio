@@ -1,4 +1,5 @@
 import { HashLink } from "react-router-hash-link";
+import { Link } from 'react-router-dom';
 
 import Project from "../components/projects/Project";
 
@@ -38,7 +39,13 @@ function Home () {
                         to='#projects'>
                             Projects
                         </HashLink>
-                        &nbsp;so far!
+                        &nbsp;so far or go to my&nbsp;
+                        <HashLink
+                        smooth
+                        to='#contact'>
+                            Contact
+                        </HashLink>
+                        &nbsp;info to reach out!
                     </p>
                 </div>
                 <div className={classes.icons}>
@@ -58,6 +65,22 @@ function Home () {
                             <Project data={project} index={index}/>
                         );
                     })}
+                </div>
+            </div>
+            <div className={classes.contact}>
+                <h2 id='contact'>
+                    Contact
+                </h2>
+                <p>
+                    You can reach me at LinkedIn or check out my Github to see the code behind this page!
+                </p>
+                <div className={`${classes.icons} ${classes.bottom}`}>
+                    <a href='www.linkedin.com/in/florina-osmani-677b78262' >
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href='https://github.com/florinaosmani'>
+                        <i class="fa-brands fa-github"></i>
+                    </a>
                 </div>
             </div>
         </div>

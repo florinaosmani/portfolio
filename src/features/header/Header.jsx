@@ -52,11 +52,6 @@ function Header () {
                                 Documentation
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink to='contact' className={({ isActive }) => `${classes.navLink} ${isActive ? classes.active : ''}`}>
-                                Contact
-                            </NavLink>
-                        </li>
                     </ul>
                 </nav>
             </header>

@@ -36,6 +36,7 @@
 
 .icons {
     margin-top: 2rem;
+    color: black;
 }
 
 .projectsContainer {
@@ -47,4 +48,17 @@
 .home h2 {
     margin-bottom: 3rem;
     font-size: 2rem;
+    font-weight: 500;
+}
+
+.bottom {
+    margin-bottom: 2rem;
+}
+
+.icons a i {
+    color: black;
+}
+
+.icons a i:hover {
+    font-size: 2.5rem;
 }
