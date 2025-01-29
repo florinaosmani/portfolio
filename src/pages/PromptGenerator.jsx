@@ -17,7 +17,7 @@ function PromptGenerator () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // make the alert fancier like add another element or smth
+        //todo: make the alert fancier like add another element or smth
         if (document.getElementById('input').value.includes(' ')) {
             alert('Try adding one word at a time :)!');
         } else {
@@ -32,34 +32,6 @@ function PromptGenerator () {
     const handleRemoveAll = () => {
         dispatch(removeAll());
     };
-
-    /* const handleFetchWord = async () => {
-        const fetchPromises = sentence.map(wordObj => {
-            if (wordObj.type === 'fetchWord' && !wordObj.isLocked) {
-                return dispatch(fetchWord({
-                    index: wordObj.keyId,
-                    type: wordObj.wordType.toLowerCase()
-                })).unwrap();
-            }
-        });
-        
-        try {
-            const results = await Promise.all(fetchPromises.filter(item => item !== undefined));
-        } catch(e) {
-            console.log('error: ' + e.message);
-        }
-        
-    }; */
-
-   /*  const handleFetchWord = () => {
-        sentence.map(wordObj => {
-            if (wordObj.type === 'fetchWord' && !wordObj.isLocked) {
-                return dispatch(fetchWord({
-                    index: wordObj.keyId,
-                    type: wordObj.wordType.toLowerCase()
-        }))}}
-                );
-    }; */
 
     const handleFetchWord = async () => {
         const fetchWords = sentence.map(wordObj => {

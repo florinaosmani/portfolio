@@ -106,8 +106,10 @@ const sentenceSlice = createSlice({
             .addCase(fetchWord.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.hasError = false;
-                state.fetchWords[action.payload.index].index = action.payload.index;
-                state.fetchWords[action.payload.index].content = action.payload.content;
+                state.fetchWords.push({
+                    index: action.payload.index,
+                    content: action.payload.content,
+                });
             })
             .addCase(fetchWord.rejected, (state) => {
                 state.isLoading = false;

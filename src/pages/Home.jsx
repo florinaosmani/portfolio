@@ -49,10 +49,10 @@ function Home () {
                     </p>
                 </div>
                 <div className={classes.icons}>
-                    <i class="fa-brands fa-html5"></i>
-                    <i class="fa-brands fa-css3-alt"></i>
-                    <i class="fa-brands fa-square-js"></i>
-                    <i class="fa-brands fa-react"></i>
+                    <i className="fa-brands fa-html5"></i>
+                    <i className="fa-brands fa-css3-alt"></i>
+                    <i className="fa-brands fa-square-js"></i>
+                    <i className="fa-brands fa-react"></i>
                 </div>
             </div>
                 <div>
@@ -62,7 +62,8 @@ function Home () {
                 <div className={classes.projectsContainer}>
                     {projectsContent.map((project, index) => {
                         return (
-                            <Project data={project} index={index}/>
+                            <Project data={project} index={index}
+                            key={index}/>
                         );
                     })}
                 </div>
@@ -76,10 +77,10 @@ function Home () {
                 </p>
                 <div className={`${classes.icons} ${classes.bottom}`}>
                     <a href='www.linkedin.com/in/florina-osmani-677b78262' >
-                        <i class="fa-brands fa-linkedin"></i>
+                        <i className="fa-brands fa-linkedin"></i>
                     </a>
                     <a href='https://github.com/florinaosmani'>
-                        <i class="fa-brands fa-github"></i>
+                        <i className="fa-brands fa-github"></i>
                     </a>
                 </div>
             </div>

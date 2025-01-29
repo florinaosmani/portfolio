@@ -4,8 +4,7 @@ import classes from '../../resources/css/components/projects/project.module.css'
 function Project ({ data, index }) {
     return (
         <NavLink className={classes.project}
-        to={data.navLink}
-        key={`project_${index}`}>
+        to={data.navLink}>
             <video
             aria-label={data.altText}
             autoPlay
