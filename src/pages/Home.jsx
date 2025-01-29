@@ -76,10 +76,10 @@ function Home () {
                     You can reach me at LinkedIn or check out my Github to see the code behind this page!
                 </p>
                 <div className={`${classes.icons} ${classes.bottom}`}>
-                    <a href='www.linkedin.com/in/florina-osmani-677b78262' >
+                    <a href='https://www.linkedin.com/in/florina-osmani-677b78262/' target='_blank'>
                         <i className="fa-brands fa-linkedin"></i>
                     </a>
-                    <a href='https://github.com/florinaosmani'>
+                    <a href='https://github.com/florinaosmani' target='_blank'>
                         <i className="fa-brands fa-github"></i>
                     </a>
                 </div>
