@@ -33,11 +33,15 @@ export const fetchBook = createAsyncThunk(
 const poemifySlice = createSlice({
     name: 'poemify',
     initialState: {
-        textLength: 'short',
+        textLength: {
+            short: true,
+            medium: false,
+            long: false,
+        },
         book: {
             wholeText: '',
             text: '',
-            startIndex: null,
+            startIndex: 0,
             author: '',
             title: '',
         },
@@ -46,13 +50,48 @@ const poemifySlice = createSlice({
         hasError: false,
     },
     reducers: {
-        setTextLength: (state) => {
+        setInitSection: (state) => {
             const wholeText = state.book.wholeText;
-            const length = state.textLength;
-            const startIndex = state.book.startIndex;
-            const { text, newStartIndex } = changeTextLength(wholeText, length, startIndex);
+            const { text, newStartIndex } = changeTextLength(wholeText, 'short', null);
             state.book.text = text;
             state.book.startIndex = newStartIndex;
+        },  
+        setTextSection: (state, action) => {
+            if (action.payload === 'new') {
+                state.book.startIndex = null;
+            }
+            let length;
+            for (let key in state.textLength) {
+                if (state.textLength[key]) {
+                    length = key;
+                }
+            };
+            const wholeText = state.book.wholeText;
+            const oldStartIndex = state.book.startIndex;
+            const { text, newStartIndex } = changeTextLength(wholeText, length, oldStartIndex);
+            state.book.text = text;
+            state.book.startIndex = newStartIndex;
+        },
+        setTextLength: (state, action) => {
+            switch(action.payload) {
+                case 'short':
+                    state.textLength.short = true;
+                    state.textLength.medium = false;
+                    state.textLength.long = false;
+                    break;
+                case 'medium':
+                    state.textLength.short = false;
+                    state.textLength.medium = true;
+                    state.textLength.long = false;
+                    break;
+                case 'long':
+                    state.textLength.short = false;
+                    state.textLength.medium = false;
+                    state.textLength.long = true;
+                    break;
+                default:
+                    break;
+            }
         },
     },
     extraReducers: (builder) => {
@@ -75,5 +114,5 @@ const poemifySlice = createSlice({
     }
 });
 
-export const { setTextLength } = poemifySlice.actions;
+export const { setTextSection, setTextLength, setInitSection } = poemifySlice.actions;
 export default poemifySlice.reducer;

@@ -2,7 +2,8 @@
 copied over using gutendex.com with this query:
 /books/?author_year_end=1900&copyright=false&languages=en&mime_type=text%2Fhtml&topic=fiction&page=1
 used pages 1-5
-removed all dramas for my sanity
+removed all dramas for my sanity and other texts with formatting that was giving me headaches
+one day i will do this for every formatting possible but that day is not today
 */
 
 
@@ -4792,89 +4793,6 @@ const data = [
     "download_count": 4118
   },
   {
-    "id": 519,
-    "title": "A Kidnapped Santa Claus",
-    "authors": [
-      {
-        "name": "Baum, L. Frank (Lyman Frank)",
-        "birth_year": 1856,
-        "death_year": 1919
-      }
-    ],
-    "summaries": [
-      "\"A Kidnapped Santa Claus\" by L. Frank Baum is a children's story written in the early 20th century. This whimsical tale centers around the adventures of Santa Claus, who is captured by the evil Daemons that reside in the nearby mountains, seeking to thwart his joyful mission of making children happy during the Christmas season. The book embodies themes of goodness, friendship, and the triumph of joy over evil.  The story unfolds in the enchanting Laughing Valley, where Santa Claus and his magical helpers, including fairies and other mystical creatures, work tirelessly to create toys for children. However, the Daemons, feeling threatened by Santa’s influence on children’s happiness, conspire to kidnap him on Christmas Eve. Despite their efforts, Santa's loyal assistants rally together to ensure that the children still receive their gifts. Ultimately, the Daemon of Repentance helps Santa escape, leading to his triumphant return to the Laughing Valley. The narrative concludes with the realization that love and kindness prevail, even against the darkest of forces, and emphasizes the importance of spreading joy during the holiday season. (This is an automatically generated summary.)"
-    ],
-    "translators": [],
-    "subjects": [
-      "Christmas stories",
-      "Fantasy literature",
-      "Santa Claus -- Juvenile fiction"
-    ],
-    "bookshelves": [
-      "Browsing: Children & Young Adult Reading",
-      "Browsing: Fiction",
-      "Children's Literature",
-      "Christmas"
-    ],
-    "languages": [
-      "en"
-    ],
-    "copyright": false,
-    "media_type": "Text",
-    "formats": {
-      "text/html": "https://www.gutenberg.org/ebooks/519.html.images",
-      "application/epub+zip": "https://www.gutenberg.org/ebooks/519.epub3.images",
-      "application/x-mobipocket-ebook": "https://www.gutenberg.org/ebooks/519.kf8.images",
-      "application/rdf+xml": "https://www.gutenberg.org/ebooks/519.rdf",
-      "image/jpeg": "https://www.gutenberg.org/cache/epub/519/pg519.cover.medium.jpg",
-      "application/octet-stream": "https://www.gutenberg.org/cache/epub/519/pg519-h.zip",
-      "text/plain; charset=us-ascii": "https://www.gutenberg.org/ebooks/519.txt.utf-8"
-    },
-    "download_count": 3907
-  },
-  {
-    "id": 67138,
-    "title": "The Sun Also Rises",
-    "authors": [
-      {
-        "name": "Hemingway, Ernest",
-        "birth_year": 1899,
-        "death_year": 1961
-      }
-    ],
-    "summaries": [
-      "\"The Sun Also Rises\" by Ernest Hemingway is a novel written in the late 1920s. The book explores the lives of a group of American and British expatriates in Europe after World War I, focusing on their disillusionment and aimlessness. The central character, Jake Barnes, narrates the story, primarily revolving around his unrequited love for Lady Brett Ashley and the complex relationships within their circle of friends.  At the start of the novel, we are introduced to Robert Cohn, an insecure Jewish man who attended Princeton and became its middleweight boxing champion, despite disliking the sport. The narrative reveals Cohn's feelings of alienation and his subsequent divorce, which leads him to California and then to Europe, where he becomes involved with Brett Ashley, a beautiful and enigmatic woman. The opening chapter sets the stage for Cohn's struggles with his identity and relationships, hinting at the broader themes of love, loss, and the quest for meaning that permeate the rest of the story. The tone is both introspective and critical, capturing the essence of the so-called \"Lost Generation.\" (This is an automatically generated summary.)"
-    ],
-    "translators": [],
-    "subjects": [
-      "Americans -- France -- Fiction",
-      "Americans -- Spain -- Fiction",
-      "Ashley, Brett (Fictitious character) -- Fiction",
-      "Expatriation -- Fiction",
-      "Spain -- History -- Alfonso XIII, 1886-1931 -- Fiction"
-    ],
-    "bookshelves": [
-      "Browsing: Culture/Civilization/Society",
-      "Browsing: Fiction",
-      "Browsing: Literature"
-    ],
-    "languages": [
-      "en"
-    ],
-    "copyright": false,
-    "media_type": "Text",
-    "formats": {
-      "application/octet-stream": "https://www.gutenberg.org/cache/epub/67138/pg67138-h.zip",
-      "text/html": "https://www.gutenberg.org/ebooks/67138.html.images",
-      "application/epub+zip": "https://www.gutenberg.org/ebooks/67138.epub3.images",
-      "application/x-mobipocket-ebook": "https://www.gutenberg.org/ebooks/67138.kf8.images",
-      "application/rdf+xml": "https://www.gutenberg.org/ebooks/67138.rdf",
-      "image/jpeg": "https://www.gutenberg.org/cache/epub/67138/pg67138.cover.medium.jpg",
-      "text/plain; charset=us-ascii": "https://www.gutenberg.org/ebooks/67138.txt.utf-8"
-    },
-    "download_count": 3884
-  },
-  {
     "id": 103,
     "title": "Around the World in Eighty Days",
     "authors": [
@@ -5820,53 +5738,6 @@ const data = [
       "text/plain; charset=us-ascii": "https://www.gutenberg.org/ebooks/175.txt.utf-8"
     },
     "download_count": 3091
-  },
-  {
-    "id": 6737,
-    "title": "The Social Cancer: A Complete English Version of Noli Me Tangere",
-    "authors": [
-      {
-        "name": "Rizal, José",
-        "birth_year": 1861,
-        "death_year": 1896
-      }
-    ],
-    "summaries": [
-      "\"The Social Cancer: A Complete English Version of Noli Me Tangere\" by José Rizal is a historical novel written during the late 19th century. This work unveils the social injustices and difficulties faced by Filipinos under Spanish colonial rule, with its narrative largely focusing on Crisostomo Ibarra, a young Filipino who returns to the Philippines after studying abroad and is confronted with the realities of oppression, corruption, and the hypocrisy of the religious and political powers of the time.  The opening of the novel introduces a dinner hosted by Don Santiago de los Santos, also known as Capitan Tiago, establishing the social setting and characters that will play a crucial role in depicting the lives and struggles of Filipinos. Through vivid portrayals of the elite society, Rizal hints at the underlying tensions and issues that plague the nation. Key themes of social disparity and the influence of colonialism are presented, indicating the deeper narrative that will unfold as Ibarra navigates through his interactions and the broader societal context. Thus, the beginning sets the stage for a profound exploration of personal and national identity against the backdrop of societal decay and aspiration for reform. (This is an automatically generated summary.)"
-    ],
-    "translators": [
-      {
-        "name": "Derbyshire, Charles E.",
-        "birth_year": null,
-        "death_year": null
-      }
-    ],
-    "subjects": [
-      "Historical fiction",
-      "Philippines -- History -- 1812-1898 -- Fiction"
-    ],
-    "bookshelves": [
-      "Browsing: Fiction",
-      "Browsing: History - General",
-      "Browsing: Literature"
-    ],
-    "languages": [
-      "en"
-    ],
-    "copyright": false,
-    "media_type": "Text",
-    "formats": {
-      "text/html": "https://www.gutenberg.org/ebooks/6737.html.images",
-      "text/html; charset=iso-8859-1": "https://www.gutenberg.org/files/6737/6737-h/6737-h.htm",
-      "application/epub+zip": "https://www.gutenberg.org/ebooks/6737.epub3.images",
-      "application/x-mobipocket-ebook": "https://www.gutenberg.org/ebooks/6737.kf8.images",
-      "text/plain; charset=iso-8859-1": "https://www.gutenberg.org/files/6737/6737-8.txt",
-      "application/rdf+xml": "https://www.gutenberg.org/ebooks/6737.rdf",
-      "image/jpeg": "https://www.gutenberg.org/cache/epub/6737/pg6737.cover.medium.jpg",
-      "application/octet-stream": "https://www.gutenberg.org/cache/epub/6737/pg6737-h.zip",
-      "text/plain; charset=us-ascii": "https://www.gutenberg.org/ebooks/6737.txt.utf-8"
-    },
-    "download_count": 3081
   },
   {
     "id": 114,

@@ -43,7 +43,7 @@ function Documentation() {
                         className={classes.scrollToTop}
                         aria-label='a link that will take you to the top of the page'> 
                         {/* todo: please figure out how to make accessible and prettier*/}
-                        <i class="fa-solid fa-arrow-up"></i>
+                        <i className="fa-solid fa-arrow-up"></i>
                     </HashLink>
                 </div>
             </section>

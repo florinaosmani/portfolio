@@ -1,23 +1,79 @@
-.columnsContainer {
-    display: flex;
-    justify-content: space-around;
+.poemify {
+    margin-bottom: 3rem;
 }
 
-.stuffContainer {
+.columnsContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bookContainer,
+.poemContainer {
     width: 40%;
 }
 
-.bookContainer{
+.poemTextContainer,
+.bookDataContainer {
+    border: 2px solid black;
+    background-color: var(--off-white-color);
+}
+
+.poemify h2 {
+    font-size: 1.5rem;
+}
+.poemify h3 {
+    font-size: 1rem;
+}
+
+.poemify button {
+    font-family: var(--main-font);
+    background-color: var(--button-color);
+    font-size: 1rem;
+    border-radius: 3px;
+}
+
+.poemify button:hover {
+    box-shadow: inset -1px -1px 1px black;
+}
+
+.bookContainer,
+.poemContainer{
     display: flex;
+    align-items: center;
 }
 
 .bookSettingContainer {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 20rem;
+    margin-right: 0.5rem;
 }
 
 .bookSettingContainer button {
     height: 20%;
-    font-family: var(--main-font);
+    border-bottom: 0px;
+}
+
+.bookSettingContainer button:last-child {
+    border-bottom: 2px solid black;
+}
+
+.poemTextContainer {
+    height: 34rem;
+    width: 100%;
+    margin-right: 0.5rem;
+    padding: 1rem;
+}
+
+.titleAuthorContainer {
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.bookTextContainer {
+    margin: 1rem;
+}
+
+.buttonPressed {
+    font-weight: 600;
 }

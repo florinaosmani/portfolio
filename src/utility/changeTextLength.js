@@ -33,7 +33,7 @@ function changeTextLength (text, len, prevStartIndex) {
     
     return {
         text: subTextWholeWords,
-        startIndex: startIndex
+        newStartIndex: startIndex
     };
 };
 
