@@ -20,6 +20,10 @@
     margin-bottom: 3rem;
 }
 
+.introduction p {
+    margin-bottom: 1rem;
+}
+
 .introduction a {
     color: black;
     font-weight: 500;

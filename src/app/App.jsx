@@ -4,7 +4,7 @@ import Root from '../pages/Root.jsx';
 import Home from '../pages/Home.jsx';
 import Documentation from '../pages/documentation/Documentation.jsx';
 import PromptGenerator from '../pages/PromptGenerator.jsx';
-import Poemify from '../pages/Poemify.jsx';
+import Poemify from '../features/poemify/Poemify.jsx';
 
 import '../resources/css/app.css';
 

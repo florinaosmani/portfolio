@@ -12,9 +12,9 @@ export const fetchWord = createAsyncThunk(
                     index: index,
                     content: data.data.word};
             }
-            return thunkAPI.rejectWithValue("Couldn't fetch a word.");
+            throw new Error('Something went wrong');
         } catch (error) {
-            return thunkAPI.rejectWithValue('Something went wrong :( ' + error.message);
+            console.log(error);
         }
     }
 );

@@ -38,7 +38,7 @@
 }
 
 .p {
-    width: 85%;
+    max-width: 75%;
     margin: auto auto 1rem auto;
     text-align:start;
 }

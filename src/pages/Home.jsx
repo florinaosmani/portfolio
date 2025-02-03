@@ -5,7 +5,7 @@ import Project from "../components/projects/Project";
 
 import classes from '../resources/css/pages/home.module.css';
 
-import projectsContent from "../components/projects/projectsContent";
+import projectsContent from "../resources/data/projectsContent";
 
 function Home () {
     return (
@@ -29,7 +29,7 @@ function Home () {
                     </p>
                     <p>
                         Right now, I'm deepening my React and Redux skills by building this portfolio and I am planning to explore
-                        Tailwind or Bootstrap after. I then want to further my understanding in web accessibility,
+                        React Native and Tailwind/Bootstrap after. I then want to further my understanding in web accessibility,
                         and strengthen my knowledge in asynchronous functions before diving into TypeScript next!
                     </p>
                     <p>

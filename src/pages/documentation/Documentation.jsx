@@ -6,8 +6,8 @@ import classes from '../../resources/css/pages/documentation.module.css';
 import Prism from 'prismjs';
 import { useEffect } from 'react';
 
-import content from './content';
-import Section from './Section';
+import content from '../../resources/data/documentationContent';
+import Section from '../../components/documentation/Section';
 
 function Documentation() {
 
