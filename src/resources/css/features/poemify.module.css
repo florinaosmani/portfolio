@@ -1,0 +1,23 @@
+.columnsContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stuffContainer {
+    width: 40%;
+}
+
+.bookContainer{
+    display: flex;
+}
+
+.bookSettingContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bookSettingContainer button {
+    height: 20%;
+    font-family: var(--main-font);
+}

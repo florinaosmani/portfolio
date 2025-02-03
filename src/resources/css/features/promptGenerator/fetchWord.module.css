@@ -1,11 +1,6 @@
 /* 
 colors: from prism.js solarizedlight
 just so its matching
-
-#b58900 yellow
-#859900 green
-#2aa198 cyan
-#dc322f red
  */
 
 .word {
@@ -22,21 +17,21 @@ just so its matching
 }
 
 .noun {
-    background-color: #dc322f;
+    background-color: var(--red-color);
 }
 
 .verb {
-    background-color: #2aa198;
+    background-color: var(--blue-color);
 }
 
 .adjective {
-    background-color: #859900;
+    background-color: var(--green-color);
 }
 
 .adverb {
-    background-color: #b58900;
+    background-color: var(--yellow-color);
 }
-
+ 
 .word span {
     border: 0px;
     padding: 3px 9px 3px 9px;
@@ -44,7 +39,7 @@ just so its matching
 }
 
 .word button {
-    background-color:  #ffedd0;
+    background-color:  var(--button-color);
     margin: 1px 0.2rem 1px 0;
     border-radius: 3px;
 }

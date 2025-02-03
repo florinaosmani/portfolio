@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import bookData from '../../utility/cleanBookData.js';
 
 import editBook from '../../utility/editBook.js';
+import changeTextLength from '../../utility/changeTextLength.js';
 
 export const fetchBook = createAsyncThunk(
     'poemify/fetchBook',
@@ -32,14 +33,11 @@ export const fetchBook = createAsyncThunk(
 const poemifySlice = createSlice({
     name: 'poemify',
     initialState: {
-        textLength: {
-            short: true,
-            medium: false,
-            long: false
-        },
+        textLength: 'short',
         book: {
-            wholeText: [],
-            text: [],
+            wholeText: '',
+            text: '',
+            startIndex: null,
             author: '',
             title: '',
         },
@@ -48,7 +46,14 @@ const poemifySlice = createSlice({
         hasError: false,
     },
     reducers: {
-
+        setTextLength: (state) => {
+            const wholeText = state.book.wholeText;
+            const length = state.textLength;
+            const startIndex = state.book.startIndex;
+            const { text, newStartIndex } = changeTextLength(wholeText, length, startIndex);
+            state.book.text = text;
+            state.book.startIndex = newStartIndex;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -70,5 +75,5 @@ const poemifySlice = createSlice({
     }
 });
 
-export const { } = poemifySlice.actions;
+export const { setTextLength } = poemifySlice.actions;
 export default poemifySlice.reducer;

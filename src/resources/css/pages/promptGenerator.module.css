@@ -1,11 +1,6 @@
 /* 
 colors: from prism.js solarizedlight
 just so its matching
-
-#b58900 yellow
-#859900 green
-#2aa198 cyan
-#dc322f red
  */
 
 .promptGenerator {
@@ -15,7 +10,7 @@ just so its matching
 .button,
 .wordType,
 .promptGenerator input {
-    font-family: 'Oxanium', Verdana, sans-serif;;
+    font-family: var(--main-font);
     font-size: 1rem;
     border-radius: 3px;
     margin: 0.5rem;
@@ -29,7 +24,7 @@ just so its matching
 }
 
 .button {
-    background-color: #ffedd0;
+    background-color: var(--button-color);
 }
 
 .wordType {
@@ -38,17 +33,17 @@ just so its matching
 }
 
 .noun {
-    background-color: #dc322f;
+    background-color: var(--red-color);
 }
 
 .verb {
-    background-color: #2aa198;
+    background-color: var(--blue-color);
 }
 
 .adjective {
-    background-color: #859900;
+    background-color: var(--green-color);
 }
 
 .adverb {
-    background-color: #b58900;
+    background-color: var(--yellow-color);
 }

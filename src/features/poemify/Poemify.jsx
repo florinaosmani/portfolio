@@ -3,27 +3,26 @@ import { useEffect } from 'react';
 
 import classes from '../../resources/css/features/poemify.module.css';
 
-import { fetchBook } from './poemifySlice';
+import { fetchBook, setTextLength } from './poemifySlice';
 
 function Poemify () {
     const { book } = useSelector(state => state.poemify);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchBook());
+        const fetch = async () => {
+            const response = await dispatch(fetchBook()).unwrap();
+            dispatch(setTextLength());
+        };
+        fetch();
     },[]);
 
     return (
         <div className={classes.poemify}>
             <h1>Poemify</h1>
-            <p>
-                {book.wholeText.map(p => {
-                    return <p>{p}</p>;
-                })}
-            </p>
-            <div className={classes.columnContainer}>
-                <div className={classes.bookSettingContainer}>
-                    <div className={classes.settingContainer}>
+            <div className={classes.columnsContainer}>
+                <div className={`${classes.bookContainer} ${classes.stuffContainer}`}>
+                    <div className={classes.bookSettingContainer}>
                         <button>
                             New Book
                         </button>
@@ -40,15 +39,23 @@ function Poemify () {
                             Long
                         </button>
                     </div>
-                    <div className={classes.bookSettingContainer}>
+                    <div className={classes.bookDataContainer}>
+                        <div className={classes.titleAuthorContainer}>
 
+                        </div>
+                        <div className={classes.textContainer}>
+                            {book.text}
+                        </div>
                     </div>
                 </div>
-                <div className={classes.poemContainer}>
+                <div className={`${classes.poemContainer} ${classes.stuffContainer}`}> {/*please im runnning out of ways to name containers :(((((*/}
                     <div className={classes.poemReset}>
                         <button>
                             Reset Poem
                         </button>
+                    </div>
+                    <div className={classes.poemTextContainer}>
+                        
                     </div>
                 </div>
             </div>

@@ -23,7 +23,8 @@
     line-height: 1rem;
     display: flex;
     align-items: center;
-    background-color: #ffedd0;
+    justify-content: center;
+    background-color: var(--button-color);
 }
 
 .section a {

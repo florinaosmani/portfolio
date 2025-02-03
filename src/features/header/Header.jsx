@@ -60,9 +60,9 @@ function Header () {
         return (
             <header className={classes.header}>
                 <nav className={classes.nav}>
-                    <div className={classes.pulloutTab} onClick={handleClick}>
-                        <button>
-                            Navigation
+                    <div className={classes.pulloutTab}>
+                        <button onClick={handleClick}>
+                            <i class="fa-solid fa-bars"></i>
                         </button>
                     </div>
                 </nav>

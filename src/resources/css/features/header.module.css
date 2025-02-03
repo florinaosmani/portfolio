@@ -15,7 +15,7 @@
     justify-content: space-around;
     align-items: center;
     height: inherit;
-    background-color: #FFF5E5;
+    background-color: var(--bg-color);
 }
 
 .header li {
@@ -40,15 +40,15 @@
 .pulloutTab {
     height: inherit;
     width: inherit;
-    margin-left: 2rem;
 }
 
 .header button {
+    position: absolute;
+    right: 2rem;
     height: 2.5rem;
-    background-color: #ffedd0;
-    font-family: 'Oxanium', Verdana, sans-serif;
+    background-color: var(--button-color);
     font-weight: 500;
-    font-size: larger;
+    font-size: 2rem;
     border: 2px solid #000000;
     border-top: none;
     border-radius: 0 0 10% 10%;
