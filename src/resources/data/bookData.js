@@ -3160,50 +3160,6 @@ const data = [
     "download_count": 6332
   },
   {
-    "id": 12116,
-    "title": "Struwwelpeter: Merry Stories and Funny Pictures",
-    "authors": [
-      {
-        "name": "Hoffmann, Heinrich",
-        "birth_year": 1809,
-        "death_year": 1894
-      }
-    ],
-    "summaries": [
-      "\"Struwwelpeter: Merry Stories and Funny Pictures\" by Heinrich Hoffmann is a collection of humorous children's stories and illustrations crafted in the mid-19th century. The book is notable for its entertaining yet cautionary tales aimed at young readers, teaching them moral lessons about behavior and consequences. This classic text reflects the societal values and parenting approaches of its time, often employing exaggerated depictions of misbehavior to both amuse and instruct children.  The book features a series of whimsical yet morbid stories, each focusing on a different child's misadventures and the ensuing consequences of their naughtiness. For instance, Shock-headed Peter portrays a boy who neglects personal hygiene, while Cruel Frederick details a boy's mistreatment of animals and the repercussions he faces. Other tales, such as \"The Dreadful Story of Harriet and the Matches,\" depict dire endings for children who disobey warnings, illustrating the importance of heeding parental advice. Each story is complemented by charming, often cheeky illustrations, making the book a playful but cautionary read that resonates with both children and adults. (This is an automatically generated summary.)"
-    ],
-    "translators": [],
-    "subjects": [
-      "Behavior -- Fiction",
-      "Children -- Conduct of life -- Juvenile fiction",
-      "Children's poetry, German -- Translations into English",
-      "Children's stories, German -- Translations into English",
-      "Picture books for children",
-      "Stories in rhyme"
-    ],
-    "bookshelves": [
-      "Browsing: Children & Young Adult Reading",
-      "Browsing: Literature",
-      "Browsing: Poetry",
-      "Children's Picture Books"
-    ],
-    "languages": [
-      "en"
-    ],
-    "copyright": false,
-    "media_type": "Text",
-    "formats": {
-      "text/html": "https://www.gutenberg.org/ebooks/12116.html.images",
-      "application/epub+zip": "https://www.gutenberg.org/ebooks/12116.epub3.images",
-      "application/x-mobipocket-ebook": "https://www.gutenberg.org/ebooks/12116.kf8.images",
-      "application/rdf+xml": "https://www.gutenberg.org/ebooks/12116.rdf",
-      "image/jpeg": "https://www.gutenberg.org/cache/epub/12116/pg12116.cover.medium.jpg",
-      "application/octet-stream": "https://www.gutenberg.org/files/12116/12116-h.zip",
-      "text/plain; charset=us-ascii": "https://www.gutenberg.org/ebooks/12116.txt.utf-8"
-    },
-    "download_count": 6175
-  },
-  {
     "id": 829,
     "title": "Gulliver's Travels into Several Remote Nations of the World",
     "authors": [
@@ -3986,52 +3942,6 @@ const data = [
       "text/plain; charset=us-ascii": "https://www.gutenberg.org/ebooks/1837.txt.utf-8"
     },
     "download_count": 4755
-  },
-  {
-    "id": 209,
-    "title": "The Turn of the Screw",
-    "authors": [
-      {
-        "name": "James, Henry",
-        "birth_year": 1843,
-        "death_year": 1916
-      }
-    ],
-    "summaries": [
-      "\"The Turn of the Screw\" by Henry James is a gothic novella written during the late 19th century. The story revolves around a young governess tasked with looking after two orphaned children at a remote English estate known as Bly, where strange and unsettling occurrences unfold, raising questions about both the environment and the children themselves.  At the start of the novella, a group of friends gathers around a fire on Christmas Eve, where a conversation ignites about ghostly experiences. Douglas, one of the members, hints at a chilling tale involving two children to whom a dreadful apparition appeared. This sets the stage for the recounting of the governess's experiences at Bly. As she arrives at the estate, she finds herself enchanted by the beauty of the children, Miles and Flora, yet underlying this charm is an unsettling tension hinted at through dialogue, especially about the previous governess who died under mysterious circumstances. The opening sequence effectively builds an atmosphere of suspense, promising a haunting exploration of innocence, corrupted motives, and the supernatural. (This is an automatically generated summary.)"
-    ],
-    "translators": [],
-    "subjects": [
-      "Children -- Fiction",
-      "England -- Fiction",
-      "Ghost stories",
-      "Governesses -- Fiction",
-      "Psychological fiction"
-    ],
-    "bookshelves": [
-      "Best Books Ever Listings",
-      "Browsing: Fiction",
-      "Browsing: Literature",
-      "Browsing: Psychiatry/Psychology",
-      "Gothic Fiction",
-      "Horror",
-      "Opera"
-    ],
-    "languages": [
-      "en"
-    ],
-    "copyright": false,
-    "media_type": "Text",
-    "formats": {
-      "text/html": "https://www.gutenberg.org/ebooks/209.html.images",
-      "application/epub+zip": "https://www.gutenberg.org/ebooks/209.epub3.images",
-      "application/x-mobipocket-ebook": "https://www.gutenberg.org/ebooks/209.kf8.images",
-      "application/rdf+xml": "https://www.gutenberg.org/ebooks/209.rdf",
-      "image/jpeg": "https://www.gutenberg.org/cache/epub/209/pg209.cover.medium.jpg",
-      "text/plain; charset=us-ascii": "https://www.gutenberg.org/ebooks/209.txt.utf-8",
-      "application/octet-stream": "https://www.gutenberg.org/cache/epub/209/pg209-h.zip"
-    },
-    "download_count": 4732
   },
   {
     "id": 10676,

@@ -2,25 +2,32 @@
     margin-bottom: 3rem;
 }
 
-.columnsContainer {
-    display: flex;
-    justify-content: space-evenly;
+.instructions {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.bookContainer,
-.poemContainer {
-    width: 40%;
+.instructions i {
+    font-size: 1.5rem;
+    line-height: 4rem;
 }
 
-.poemTextContainer,
-.bookDataContainer {
-    border: 2px solid black;
-    background-color: var(--off-white-color);
+.instructions p {
+    display: none;
+}
+
+.instructions i:hover {
+    display: none;
+}
+
+.instructions i:hover + p {
+    display: inline;
 }
 
 .poemify h2 {
     font-size: 1.5rem;
 }
+
 .poemify h3 {
     font-size: 1rem;
 }
@@ -30,39 +37,21 @@
     background-color: var(--button-color);
     font-size: 1rem;
     border-radius: 3px;
+    height: 2rem;
 }
 
 .poemify button:hover {
     box-shadow: inset -1px -1px 1px black;
 }
 
-.bookContainer,
-.poemContainer{
+.bookFlexContainer {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
 }
 
-.bookSettingContainer {
-    display: flex;
-    flex-direction: column;
-    height: 20rem;
-    margin-right: 0.5rem;
-}
-
-.bookSettingContainer button {
-    height: 20%;
-    border-bottom: 0px;
-}
-
-.bookSettingContainer button:last-child {
-    border-bottom: 2px solid black;
-}
-
-.poemTextContainer {
-    height: 34rem;
-    width: 100%;
-    margin-right: 0.5rem;
-    padding: 1rem;
+.bookContainer{
+    width: 70%;
 }
 
 .titleAuthorContainer {
@@ -74,6 +63,59 @@
     margin: 1rem;
 }
 
+.bookSettingContainer {
+    display: flex;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.bookSettingContainer button {
+    width: 20%;
+}
+
 .buttonPressed {
     font-weight: 600;
+    box-shadow: inset -1px -1px 1px black;
+}
+
+.poemTextContainer,
+.bookDataContainer,
+.wordsTextContainer {
+    border: 2px solid black;
+    background-color: var(--off-white-color);
+}
+
+.wordsAndPoemContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.poemContainer,
+.wordsContainer {
+    width: 40%;
+    height: 30rem;
+    position: relative;
+}
+
+.poemTextContainer,
+.wordsTextContainer {
+
+    width: 100%;
+    height: 100%;
+}
+
+.wordsContainer button {
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.wordsTextContainer {
+    margin-top: 2rem;
+}
+
+.wordsTextContainer span {
+    display: inline-block;
+    border: 2px solid black;
+    line-height: 2rem;
+    margin: 0.2rem;
 }

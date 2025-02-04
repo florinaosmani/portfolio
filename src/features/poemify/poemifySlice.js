@@ -44,18 +44,13 @@ const poemifySlice = createSlice({
             startIndex: 0,
             author: '',
             title: '',
+            selections: [],
         },
         poem: {},
         isLoading: false,
         hasError: false,
     },
     reducers: {
-        setInitSection: (state) => {
-            const wholeText = state.book.wholeText;
-            const { text, newStartIndex } = changeTextLength(wholeText, 'short', null);
-            state.book.text = text;
-            state.book.startIndex = newStartIndex;
-        },  
         setTextSection: (state, action) => {
             if (action.payload === 'new') {
                 state.book.startIndex = null;
@@ -92,6 +87,16 @@ const poemifySlice = createSlice({
                 default:
                     break;
             }
+        }, 
+        setSelection: (state, action) => {
+            state.book.selections.push({
+                content: action.payload.content,
+                startIndex: action.payload.startIndex,
+                endIndex: action.payload.endIndex,
+            });
+        },
+        removeSelection: (state) => {
+            state.book.selections = [];
         },
     },
     extraReducers: (builder) => {
@@ -114,5 +119,5 @@ const poemifySlice = createSlice({
     }
 });
 
-export const { setTextSection, setTextLength, setInitSection } = poemifySlice.actions;
+export const { setTextSection, setTextLength, setSelection, removeSelection } = poemifySlice.actions;
 export default poemifySlice.reducer;
