@@ -6,9 +6,13 @@ import classes from '../../resources/css/features/poemify.module.css';
 import { fetchBook, setTextSection, setTextLength, setSelection, removeSelection } from './poemifySlice';
 
 function Poemify () {
-    const { book, textLength, isLoading } = useSelector(state => state.poemify);
-    const { text, author, title, selections, textWithSelections } = useSelector(state => state.poemify.book);
+    const { textLength, isLoading } = useSelector(state => state.poemify);
+    const { text, author, title, selections, bookId } = useSelector(state => state.poemify.book);
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+      },[]);
 
     useEffect(() => {
         const fetch = async () => {
@@ -24,30 +28,41 @@ function Poemify () {
     };
 
     const handleSetSection = () => {
-        dispatch(setTextSection('new'));
+        const fetch = async () => {
+            const response = await dispatch(fetchBook(bookId)).unwrap();
+            dispatch(setTextSection());
+        };
+        fetch();
     };
 
     const handleNewBook = () => {
         const fetch = async () => {
             const response = await dispatch(fetchBook()).unwrap();
-            dispatch(setInitSection());
+            dispatch(setTextSection());
         };
         fetch();
     };
 
     const handleSelection = () => {
         const selection = document.getSelection();
-        if (selection.toString() !== '') {
+        if (!selection.isCollapsed && selection.toString() !== ' ') {
             dispatch(setSelection({
                 content: selection.toString(),
                 startIndex: selection.getRangeAt(0).startOffset,
                 endIndex: selection.getRangeAt(0).endOffset,
             }));
         }
+        selection.empty();
     };
 
     const handleRemoveSelection = () => {
         dispatch(removeSelection());
+    };
+
+    const handleDragStart = (event) => {
+        console.log(event.target);
+        console.log(event.target.value);
+        /* event.dataTransfer.setData('text/plain', event.target); */
     };
 
     const loremIpsum = `Lorem ipsum dolor sit amet,consectetur adipiscing elit,
@@ -62,7 +77,7 @@ function Poemify () {
         <div className={classes.poemify}>
             <h1>Poemify</h1>
             <div className={classes.instructions}>
-                <i class="fa-solid fa-question"></i>
+                <i className="fa-solid fa-question"></i>
                 <p>Create your own poem by first selecting words or phrases you like.
                     <br/>Then drag your selected words from the left box to the right one in the
                     order you would like!
@@ -78,8 +93,7 @@ function Poemify () {
                         <div className={classes.bookTextContainer}>
                             <p
                             onMouseUp={handleSelection}>
-                                {/* {isLoading ? loremIpsum : text} */}
-                                {text}
+                                {isLoading ? loremIpsum : text}
                             </p>
                         </div>
                     </div>
@@ -117,7 +131,7 @@ function Poemify () {
                 <div className={classes.wordsContainer}>
                     <button
                     onClick={handleRemoveSelection}>
-                        Reset Selection
+                        Reset Selections
                     </button>
                     <div className={classes.wordsTextContainer}>
                         {selections.map((selection, index) => {

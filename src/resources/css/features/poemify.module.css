@@ -99,7 +99,6 @@
 
 .poemTextContainer,
 .wordsTextContainer {
-
     width: 100%;
     height: 100%;
 }
@@ -110,7 +109,11 @@
     top:0;
 }
 .wordsTextContainer {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+}
+
+.poemTextContainer {
+    margin-top: 0.5rem;
 }
 
 .wordsTextContainer span {

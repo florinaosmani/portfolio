@@ -37,7 +37,7 @@ function changeTextLength (text, len, prevStartIndex) {
     };
 };
 
-/* console.log(changeTextLength(editBook(file), 'short', null));
- */
+/* console.log(changeTextLength(editBook(file), 'short', 0)); */
+
 
 export default changeTextLength;

@@ -11,6 +11,10 @@ import Section from '../../components/documentation/Section';
 
 function Documentation() {
 
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+      },[]);
+
     useEffect(() => {
         Prism.highlightAll();
     },[]);
