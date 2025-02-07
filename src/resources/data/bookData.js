@@ -5650,40 +5650,6 @@ const data = [
     "download_count": 3091
   },
   {
-    "id": 114,
-    "title": "The Tenniel Illustrations for Carroll's Alice in Wonderland",
-    "authors": [
-      {
-        "name": "Tenniel, John",
-        "birth_year": 1820,
-        "death_year": 1914
-      }
-    ],
-    "summaries": [],
-    "translators": [],
-    "subjects": [
-      "Children's stories",
-      "Fantasy fiction"
-    ],
-    "bookshelves": [
-      "Browsing: Art & Photography",
-      "Browsing: Children & Young Adult Reading",
-      "Browsing: Fiction"
-    ],
-    "languages": [
-      "en"
-    ],
-    "copyright": false,
-    "media_type": "StillImage",
-    "formats": {
-      "application/rdf+xml": "https://www.gutenberg.org/ebooks/114.rdf",
-      "image/jpeg": "https://www.gutenberg.org/cache/epub/114/pg114.cover.medium.jpg",
-      "text/html": "https://www.gutenberg.org/files/114/114-h/114-h.htm",
-      "text/plain; charset=us-ascii": "https://www.gutenberg.org/files/114/114-0.txt"
-    },
-    "download_count": 3070
-  },
-  {
     "id": 4078,
     "title": "The Picture of Dorian Gray",
     "authors": [
