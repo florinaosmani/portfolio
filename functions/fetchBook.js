@@ -14,6 +14,10 @@ export const handler = async (event, context) => {
                 body: text
             };
         }
+        return {
+            statusCode: 500,
+            body: "Not working"
+        };
     } catch (error) {
         return {
             statusCode: 500,

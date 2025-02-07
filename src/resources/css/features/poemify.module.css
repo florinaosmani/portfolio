@@ -1,27 +1,48 @@
+/* todo: change cursors to make more dynamic ayy */
+
 .poemify {
     margin-bottom: 3rem;
 }
 
 .instructions {
-    text-align: center;
-    margin-bottom: 2rem;
+    position: fixed;
+    left: 2rem;
+    top: 0;
+    z-index: 2;
+}
+
+.icon {
+    width: 2.625rem;
+    height: 2.375rem;
+    border: 2px solid black;
+    border-top: 0px;
+    border-radius: 0 0 3px 3px;
+    background-color: var(--button-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .instructions i {
     font-size: 1.5rem;
-    line-height: 4rem;
 }
 
-.instructions p {
+.instructionsText {
     display: none;
+    width: 40rem;
+    background-color: var(--button-color);
+    border: 2px solid black;
+    padding: 1rem;
 }
 
-.instructions i:hover {
+.icon:hover {
     display: none;
+    cursor: default;
 }
 
-.instructions i:hover + p {
-    display: inline;
+.icon:hover + .instructionsText {
+    display: block;
+    cursor: default;
 }
 
 .poemify h2 {
@@ -61,6 +82,7 @@
 
 .bookTextContainer {
     margin: 1rem;
+    cursor: text;
 }
 
 .bookSettingContainer {
@@ -99,6 +121,7 @@
 
 .poemTextContainer,
 .wordsTextContainer {
+    overflow: hidden;
     width: 100%;
     height: 100%;
 }
@@ -114,6 +137,7 @@
 
 .poemTextContainer {
     margin-top: 0.5rem;
+    position: relative;
 }
 
 .wordsTextContainer span {
@@ -121,4 +145,17 @@
     border: 2px solid black;
     line-height: 2rem;
     margin: 0.2rem;
+    cursor: grab;
+}
+
+.wordsAndPoemContainer span:active {
+    cursor: grabbing;
+}
+
+.poemTextContainer span {
+    display: inline-block;
+    border: 2px solid black;
+    line-height: 2rem;
+    position: absolute;
+    cursor: grab;
 }

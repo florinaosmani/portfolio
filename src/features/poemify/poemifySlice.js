@@ -68,7 +68,7 @@ const poemifySlice = createSlice({
             bookId: null,
             selections: [],
         },
-        poem: {},
+        poem: [],
         isLoading: false,
         hasError: false,
     },
@@ -119,7 +119,9 @@ const poemifySlice = createSlice({
             /* will first check if part of/the whole selection already exists and replace
              it with the new selection*/
             let bool = false;
+            let poemBool = false;
             let removeIndex = [];
+            let poemRemoveIndex = [];
             
             state.book.selections.forEach((selection, index) => {
                 for(let i = selection.startIndex; i < selection.endIndex; i++) {
@@ -136,9 +138,33 @@ const poemifySlice = createSlice({
                 }
             });
 
+            state.poem.forEach((selection, index) => {
+                for(let i = selection.startIndex; i < selection.endIndex; i++) {
+                    for(let j = action.payload.startIndex; j < action.payload.endIndex; j++) {
+                        if(j === i) {
+                            poemBool = true;
+                            poemRemoveIndex.push(index);
+                            break;
+                        }
+                    }
+                    if(poemBool) {
+                        break;
+                    }
+                }
+            });
+
             if (bool) {
                 state.book.selections = state.book.selections.filter((selection, index) => {
                     return !removeIndex.some(i => i === index);
+                });
+                state.book.selections.push({
+                    content: action.payload.content,
+                    startIndex: action.payload.startIndex,
+                    endIndex: action.payload.endIndex,
+                });
+            } else if (poemBool) {
+                state.poem = state.poem.filter((selection, index) => {
+                    return !poemRemoveIndex.some(i => i === index);
                 });
                 state.book.selections.push({
                     content: action.payload.content,
@@ -155,6 +181,41 @@ const poemifySlice = createSlice({
         },
         removeSelection: (state) => {
             state.book.selections = [];
+        },
+        removeSingleSelection: (state, action) => {
+            state.book.selections.splice(action.payload, 1);
+        },
+        addWord: (state, action) => {
+            const [type, index] = action.payload.id.split('_');
+            if(type === 'id') {
+                const wordObj = state.book.selections[index];
+                state.book.selections.splice(index, 1);
+                state.poem.push({
+                    ...wordObj,
+                    xPosition: action.payload.xPosition,
+                    yPosition: action.payload.yPosition,
+                });
+            } else {
+                const poemObj = state.poem[index];
+                state.poem.splice(index, 1);
+                state.poem.push({
+                    ...poemObj,
+                    xPosition: action.payload.xPosition,
+                    yPosition: action.payload.yPosition,
+                });
+            }
+        },
+        removeWord: (state, action) => {
+            const { content, startIndex, endIndex } = state.poem[action.payload];
+            state.poem.splice(action.payload, 1);
+            state.book.selections.push({
+                content: content,
+                startIndex: startIndex,
+                endIndex: endIndex,
+            });
+        },
+        resetPoem : (state) => {
+            state.poem = [];
         },
     },
     extraReducers: (builder) => {
@@ -180,5 +241,5 @@ const poemifySlice = createSlice({
     }
 });
 
-export const { setTextSection, setTextLength, setSelection, removeSelection } = poemifySlice.actions;
+export const { setTextSection, setTextLength, setSelection, removeSelection, addWord, removeWord, resetPoem, removeSingleSelection } = poemifySlice.actions;
 export default poemifySlice.reducer;

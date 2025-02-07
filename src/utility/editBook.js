@@ -14,6 +14,7 @@ function editBook (book) {
             && !paragraph.includes('<i>')
             && !paragraph.includes('<br>')
             && !paragraph.includes ('<span')
+            && !paragraph.includes ('<small>')
             && !paragraph.includes('This text is a combination of etexts,')
             && !paragraph.match(bracketRegex)
             && !paragraph.match(aTagRegex)

@@ -3,10 +3,10 @@ import { useEffect } from 'react';
 
 import classes from '../../resources/css/features/poemify.module.css';
 
-import { fetchBook, setTextSection, setTextLength, setSelection, removeSelection } from './poemifySlice';
+import { fetchBook, setTextSection, setTextLength, setSelection, removeSelection, addWord, removeWord, resetPoem, removeSingleSelection} from './poemifySlice';
 
 function Poemify () {
-    const { textLength, isLoading } = useSelector(state => state.poemify);
+    const { textLength, isLoading, poem } = useSelector(state => state.poemify);
     const { text, author, title, selections, bookId } = useSelector(state => state.poemify.book);
     const dispatch = useDispatch();
 
@@ -27,7 +27,8 @@ function Poemify () {
         dispatch(setTextSection());
     };
 
-    const handleSetSection = () => {
+    const handleNewSection = () => {
+        dispatch(removeSelection());
         const fetch = async () => {
             const response = await dispatch(fetchBook(bookId)).unwrap();
             dispatch(setTextSection());
@@ -36,6 +37,7 @@ function Poemify () {
     };
 
     const handleNewBook = () => {
+        dispatch(removeSelection());
         const fetch = async () => {
             const response = await dispatch(fetchBook()).unwrap();
             dispatch(setTextSection());
@@ -60,9 +62,56 @@ function Poemify () {
     };
 
     const handleDragStart = (event) => {
-        console.log(event.target);
-        console.log(event.target.value);
-        /* event.dataTransfer.setData('text/plain', event.target); */
+        const rect = event.target.getBoundingClientRect();
+        const offSetX = event.clientX - rect.left; //event.clientX is the mouse position
+        const offSetY = event.clientY - rect.top; // rect.y is the elements position
+
+        event.dataTransfer.setData('text/plain', event.target.id);
+        event.dataTransfer.setData('offSetX', offSetX);
+        event.dataTransfer.setData('offSetY', offSetY)
+    };
+
+    const handleDragOver = (event) => {
+        event.preventDefault();
+    };
+
+    const handleDragEnter = (event) => {
+        event.preventDefault();
+    };
+
+    const handleDrop = (event) => {
+        if (event.target.className.includes('poemTextContainer') || event.target.id.includes('wordId')) {
+            const id = event.dataTransfer.getData('text/plain');  
+            const offSetX = Number(event.dataTransfer.getData('offSetX'));
+            const offSetY = Number(event.dataTransfer.getData('offSetY'));
+            const div = document.getElementById('poem').getBoundingClientRect();
+            const xPosition = event.clientX - offSetX - div.left;
+            const yPosition = event.clientY - offSetY - div.top;
+            dispatch(addWord({
+                id: id,
+                xPosition: xPosition,
+                yPosition: yPosition
+            }));
+        }
+        event.preventDefault();
+    };
+
+    const handleDropOutside = (event) => {
+        const id = event.dataTransfer.getData('text/plain');
+        if(!event.target.className.includes('poemTextContainer') 
+            && id.includes('wordId')
+            && !event.target.id.includes('wordId')) {
+            dispatch(removeWord(id.split('_')[1]));
+        }
+    };
+
+    const handleResetPoem = () => {
+        dispatch(resetPoem());
+    };
+
+    const handleDoubleClick = (event) => {
+        const id = event.target.id.split('_')[1];
+        dispatch(removeSingleSelection(id));
     };
 
     const loremIpsum = `Lorem ipsum dolor sit amet,consectetur adipiscing elit,
@@ -74,15 +123,25 @@ function Poemify () {
                         culpa qui officia deserunt mollit anim id est laborum.`;
     
     return (
-        <div className={classes.poemify}>
-            <h1>Poemify</h1>
+        <div className={classes.poemify}
+        onDrop={handleDropOutside}
+        onDragOver={handleDragOver}
+        onDragEnter={handleDragEnter}>
             <div className={classes.instructions}>
-                <i className="fa-solid fa-question"></i>
-                <p>Create your own poem by first selecting words or phrases you like.
-                    <br/>Then drag your selected words from the left box to the right one in the
-                    order you would like!
-                </p>
+                <div className={classes.icon}>
+                    <i className="fa-solid fa-question"></i>
+                </div>
+                <div className={classes.instructionsText}>
+                    <p>Create your own poem by first selecting words or phrases you like.
+                        Double click to remove a single selection.
+                        Then drag your selected words from the left box to the right one in the
+                        order you would like.
+                        If you're not happy with a selection within your poem, simply drag it out
+                        of the box to remove it.
+                    </p>
+                </div>
             </div>
+            <h1>Poemify</h1>
             <div className={classes.bookFlexContainer}>
                 <div className={classes.bookContainer}>
                     <div className={classes.bookDataContainer}>
@@ -103,7 +162,7 @@ function Poemify () {
                             New Book
                         </button>
                         <button
-                        onClick={handleSetSection}>
+                        onClick={handleNewSection}>
                             New Section
                         </button>
                         <button
@@ -137,8 +196,11 @@ function Poemify () {
                         {selections.map((selection, index) => {
                             return (
                                 <span
-                                key={index}
-                                draggable='true'>
+                                key={`id_${index}`}
+                                id={`id_${index}`}
+                                draggable='true'
+                                onDragStart={handleDragStart}
+                                onDoubleClick={handleDoubleClick}>
                                     {selection.content}
                                 </span>
                             );
@@ -146,11 +208,28 @@ function Poemify () {
                     </div>
                 </div> 
                 <div className={classes.poemContainer}>
-                    <button>
+                    <button
+                    onClick={handleResetPoem}>
                         Reset Poem
                     </button>
-                    <div className={classes.poemTextContainer}>
-
+                    <div className={classes.poemTextContainer}
+                    onDragOver={handleDragOver}
+                    onDragEnter={handleDragEnter}
+                    onDrop={handleDrop}
+                    id='poem'
+                    >
+                        {poem.map((wordObj, index) => {
+                            return (
+                                <span
+                                key={`wordId_${index}`}
+                                id={`wordId_${index}`}
+                                draggable='true'
+                                onDragStart={handleDragStart}
+                                style={{top: wordObj.yPosition, left: wordObj.xPosition}}>
+                                    {wordObj.content}
+                                </span>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
