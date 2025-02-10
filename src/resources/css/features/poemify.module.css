@@ -100,6 +100,11 @@
     box-shadow: inset -1px -1px 1px black;
 }
 
+.bookTextContainer p::selection {
+    background-color: var(--blue-color);
+    color: white;
+}
+
 .poemTextContainer,
 .bookDataContainer,
 .wordsTextContainer {

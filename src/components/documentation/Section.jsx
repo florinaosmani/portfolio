@@ -62,6 +62,33 @@ function Section({ section }) {
                                 </pre>
                             </div>
                         );
+                        case 'video-video':
+                            return (
+                                <div className={classes.videoVideo} key={`vv_${index}`}>
+                                    <video
+                                        src={pieceOfContent.data.video1.src}
+                                        type={pieceOfContent.data.video1.type}
+                                        className={classes[pieceOfContent.data.video1.className]}
+                                        aria-label={pieceOfContent.data.video1.ariaLabel}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        >
+                                        This video cannot be displayed.
+                                    </video>
+                                    <video
+                                        src={pieceOfContent.data.video2.src}
+                                        type={pieceOfContent.data.video2.type}
+                                        className={classes[pieceOfContent.data.video2.className]}
+                                        aria-label={pieceOfContent.data.video2.ariaLabel}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        >
+                                        This video cannot be displayed.
+                                    </video>
+                                </div>
+                            );
                     default: 
                         return null;
                 }
