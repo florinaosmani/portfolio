@@ -28,6 +28,7 @@ function Poemify () {
     };
 
     const handleNewSection = () => {
+        dispatch(resetPoem());
         dispatch(removeSelection());
         const fetch = async () => {
             const response = await dispatch(fetchBook(bookId)).unwrap();
@@ -37,6 +38,7 @@ function Poemify () {
     };
 
     const handleNewBook = () => {
+        dispatch(resetPoem());
         dispatch(removeSelection());
         const fetch = async () => {
             const response = await dispatch(fetchBook()).unwrap();

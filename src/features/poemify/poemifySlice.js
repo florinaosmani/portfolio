@@ -215,6 +215,13 @@ const poemifySlice = createSlice({
             });
         },
         resetPoem : (state) => {
+            state.poem.forEach(word => {
+                state.book.selections.push({
+                    content: word.content,
+                    startIndex: word.startIndex,
+                    endIndex: word.endIndex,
+                })
+            });
             state.poem = [];
         },
     },
