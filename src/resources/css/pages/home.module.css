@@ -66,3 +66,50 @@
 .icons a i:hover {
     font-size: 2.5rem;
 }
+
+.note {
+    display: inline;
+    margin-left: 1rem;
+}
+
+.note i {
+    font-size: 2rem;
+}
+
+.noteText {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    margin-left: -7.5rem;
+    width: 15rem;
+    height: auto;
+    background-color: var(--bg-color);
+    border: 2px solid black;
+    display: none;
+    text-align: left;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.noteText hr {
+    border: none;
+    height: 2px;
+    background-color: black;
+}
+
+.noteText h3 {
+    font-weight: 500;
+}
+
+.note:hover .noteText{
+    display: block;
+}
+
+.note:hover i {
+    display: none;
+}
+
+.noteText li{
+    list-style: disc;
+    margin-left: 1rem; 
+}

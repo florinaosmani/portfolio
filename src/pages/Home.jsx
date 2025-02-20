@@ -14,6 +14,28 @@ function Home () {
                 <div className={classes.inline}>
                     <p>Hi, I'm</p>
                     <h1>Florina Osmani!</h1>
+                    <div className={classes.note}>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div className={classes.noteText}>
+                            <p>This site is still under construction!</p>
+                            <hr/>
+                            <h3>Todos:</h3>
+                            <ul>
+                                <li>
+                                    Responsive Design
+                                </li>
+                                <li>
+                                    Mobile friendly interactivity
+                                </li>
+                                <li>
+                                    Refactor everything
+                                </li>
+                                <li>
+                                    More to come probably...
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div className='text_introduction'>
                     <p>
