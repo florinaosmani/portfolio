@@ -409,28 +409,65 @@ state.book.selections.push({
         type: 'paragraph',
         data: `At this point, I started receiving performance warnings in my dev tools telling me that Redux was storing too much data. Originally, I kept the entire book's text in the store but I had to change it so my fetch function only stores the currently displayed section in its different lengths.`
        },
-       {
-        type: 'paragraph',
-        data: ``
-       },
-       {
-        type: 'paragraph',
-        data: ``
-       },
-       {
-        type: 'paragraph',
-        data: ``
-       },
-       {
-        type: 'paragraph',
-        data: ``
-       },
-       {
-        type: 'paragraph',
-        data: ``
-       },
     ]
   },
+  {
+    id: 'selfportrait',
+    header: 'CSS Self Portrait',
+    content:[
+               {
+                type: 'paragraph',
+                data: 'I wanted to try out CSS animations and experiment with different shapes in CSS. This was a quick project, but I feel like I learned a lot still.',
+               },
+               {
+                type: 'paragraph',
+                data: `Initially I only had one div with leaves inside, but I wanted to add more and then either copy and paste the CSS of the individual leaves and change the top positions so the leaves would keep looping, or find a workaround. I decided to work with JS since I didn't feel like copy pasting all of that and individually doing the calculations, so now I have two arrays containing "leaf-data".`,
+               },
+               {
+                type: 'paragraph',
+                data: 'One div has the positions of the leaves-containers, while the other has positions of individual leaves. Two map functions take care of creating the elements with their individual positions.',
+               },
+               {
+                type: 'code',
+                data: {
+                        language: 'language-js',
+                        code: `
+{leavesOffset.map((leaves, index) => {
+    return (
+        <div 
+        key={\`leaves_\${index}\`}
+        className={classes.leaves}
+        style={{top: \`\${leaves.top}%\`, left: \`\${leaves.left}%\`}}
+        >
+            {leafOffset.map(((leaf, i) => {
+                const offset = leaves.top + leaf.top;
+                return (
+                    <>
+                        <div 
+                        className={classes.leaf}
+                        style={{top: \`\${leaf.top}%\`, left: \`\${leaf.left}%\`}}
+                        key={\`leafFirst_\${index}_\${i}\`}></div>
+                        <div 
+                        className={classes.leaf}
+                        style={{top: \`calc(\${offset}% - 80vh)\`, left: \`\${leaf.left}%\`}}
+                        key={\`leafLoop_\${index}_\${i}\`}></div>
+                    </>
+                )
+            }))}
+        </div>
+                        `,
+                      }
+              },
+               {
+                type: 'paragraph',
+                data: 'The rest of the styling was fun at some times and at other times reminded me why I think CSS is way more difficult than anything I could do in JavaScript! The hair gave me the most trouble, but even so was finished within an hour with help of a SVG Path Editor.',
+               },
+               {
+                type: 'paragraph',
+                data: `The leaves were the most enjoyable and rewarding part and I can't wait to come up with other ideas for CSS animation!`,
+               },
+            ]
+  }
 ];
 
 export default content;

@@ -5,7 +5,7 @@ import Home from '../pages/Home.jsx';
 import Documentation from '../pages/Documentation.jsx';
 import PromptGenerator from '../pages/PromptGenerator.jsx';
 import Poemify from '../features/poemify/Poemify.jsx';
-
+import SelfPortrait from '../pages/SelfPortrait.jsx';
 import '../resources/css/app.css';
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -14,8 +14,10 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='prompt-generator' element={ <PromptGenerator /> } />
     <Route path='poemify' element={ <Poemify /> } />
     <Route path='documentation' element={ <Documentation /> } />
+    <Route path='selfPortrait' element={ <SelfPortrait /> } />
   </Route>
 ))
+
 function App() {
   return (
     <>
