@@ -42,9 +42,18 @@ just so its matching
     background-color:  var(--button-color);
     margin: 1px 0.2rem 1px 0;
     border-radius: 3px;
+    color: black;
+    border: 2px outset black;
 }
 
 .word button:hover {
     font-weight: 600;
     box-shadow: 1px 1px 1px black;
+}
+
+@media (hover: none) {
+    .word button:hover{
+        font-weight: 400;
+        box-shadow: none;
+    }
 }

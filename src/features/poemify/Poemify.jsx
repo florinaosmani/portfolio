@@ -8,6 +8,7 @@ import { fetchBook, setTextSection, setTextLength, setSelection, removeSelection
 function Poemify () {
     const { textLength, isLoading, poem } = useSelector(state => state.poemify);
     const { text, author, title, selections, bookId } = useSelector(state => state.poemify.book);
+    const { isTouch } = useSelector(state => state.touch);
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -47,16 +48,22 @@ function Poemify () {
         fetch();
     };
 
-    const handleSelection = () => {
-        const selection = document.getSelection();
-        if (!selection.isCollapsed && selection.toString() !== ' ') {
-            dispatch(setSelection({
-                content: selection.toString(),
-                startIndex: selection.getRangeAt(0).startOffset,
-                endIndex: selection.getRangeAt(0).endOffset,
-            }));
+    const handleSelection = (event) => {
+        /* on mobile for some reason it will also select within the titleAuthorContainer,
+        so I quickly added a yes and no class to check whether the selection is within the right element */
+        if (event.target.className === 'yes') {
+            const selection = document.getSelection();
+            if (!selection.isCollapsed && selection.toString() !== ' ') {
+                dispatch(setSelection({
+                    content: selection.toString(),
+                    startIndex: selection.getRangeAt(0).startOffset,
+                    endIndex: selection.getRangeAt(0).endOffset,
+                }));
+            }
+            selection.empty();
+        } else {
+            return;
         }
-        selection.empty();
     };
 
     const handleRemoveSelection = () => {
@@ -123,69 +130,78 @@ function Poemify () {
                         reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                         culpa qui officia deserunt mollit anim id est laborum.`;
+    const mobileInstructions = `Create your own poem by first selecting words or phrases you like.
+                            Double tap to remove a single selection.
+                            Then long tap to drag your selected words from the top box to the bottom one in
+                            in the order you would like.
+                            If you're not happy with a selection within your poem, simply drag it out of the box
+                            to remove it.`;
+    const instructions = `Create your own poem by first selecting words or phrases you like.
+                            Double click to remove a single selection.
+                            Then drag your selected words from the left box to the right one in the
+                            order you would like.
+                            If you're not happy with a selection within your poem, simply drag it out
+                            of the box to remove it.` 
     
     return (
         <div className={classes.poemify}
         onDrop={handleDropOutside}
         onDragOver={handleDragOver}
         onDragEnter={handleDragEnter}>
-            <div className={classes.instructions}>
-                <div className={classes.icon}>
-                    <i className="fa-solid fa-question"></i>
+            <div className={classes.header}>
+                <div className={classes.instructions}>
+                    <div className={classes.icon}>
+                        <span>?</span>
+                    </div>
+                    <div className={classes.instructionsText}>
+                        <p> {isTouch ? mobileInstructions : instructions }
+                        </p>
+                    </div>
                 </div>
-                <div className={classes.instructionsText}>
-                    <p>Create your own poem by first selecting words or phrases you like.
-                        Double click to remove a single selection.
-                        Then drag your selected words from the left box to the right one in the
-                        order you would like.
-                        If you're not happy with a selection within your poem, simply drag it out
-                        of the box to remove it.
-                    </p>
-                </div>
+                <h1>Poemify</h1>
             </div>
-            <h1>Poemify</h1>
-            <div className={classes.bookFlexContainer}>
-                <div className={classes.bookContainer}>
-                    <div className={classes.bookDataContainer}>
-                        <div className={classes.titleAuthorContainer}>
-                            <h2>{isLoading ? 'Loading' : title}</h2>
-                            <h3>{isLoading ? 'Please wait' : author}</h3>
-                        </div>
-                        <div className={classes.bookTextContainer}>
-                            <p
-                            onMouseUp={handleSelection}>
-                                {isLoading ? loremIpsum : text}
-                            </p>
-                        </div>
+            <div className={classes.bookContainer}>
+                <div className={classes.bookDataContainer}>
+                    <div className={classes.titleAuthorContainer}>
+                        <h2 className='no'>{isLoading ? 'Loading' : title}</h2>
+                        <h3 className='no'>{isLoading ? 'Please wait' : author}</h3>
                     </div>
-                    <div className={classes.bookSettingContainer}>
-                        <button
-                        onClick={handleNewBook}>
-                            New Book
-                        </button>
-                        <button
-                        onClick={handleNewSection}>
-                            New Section
-                        </button>
-                        <button
-                        value='short'
-                        onClick={handleTextLengthChange}
-                        className={textLength.short ? classes.buttonPressed : ''}>
-                            Short
-                        </button>
-                        <button
-                        value='medium'
-                        onClick={handleTextLengthChange}
-                        className={textLength.medium ? classes.buttonPressed : ''}>
-                            Medium
-                        </button>
-                        <button
-                        value='long'
-                        onClick={handleTextLengthChange}
-                        className={textLength.long ? classes.buttonPressed : ''}>
-                            Long
-                        </button>
+                    <div className={classes.bookTextContainer}>
+                        <p
+                        className='yes'
+                        onMouseUp={handleSelection}
+                        onTouchEnd={isTouch ? handleSelection : undefined}>
+                            {isLoading ? loremIpsum : text}
+                        </p>
                     </div>
+                </div>
+                <div className={classes.bookSettingContainer}>
+                    <button
+                    onClick={handleNewBook}>
+                        New Book
+                    </button>
+                    <button
+                    onClick={handleNewSection}>
+                        New Section
+                    </button>
+                    <button
+                    value='short'
+                    onClick={handleTextLengthChange}
+                    className={textLength.short ? classes.buttonPressed : ''}>
+                        Short
+                    </button>
+                    <button
+                    value='medium'
+                    onClick={handleTextLengthChange}
+                    className={textLength.medium ? classes.buttonPressed : ''}>
+                        Medium
+                    </button>
+                    <button
+                    value='long'
+                    onClick={handleTextLengthChange}
+                    className={textLength.long ? classes.buttonPressed : ''}>
+                        Long
+                    </button>
                 </div>
             </div>
             <div className={classes.wordsAndPoemContainer}>

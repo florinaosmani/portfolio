@@ -1,5 +1,5 @@
 import { HashLink } from "react-router-hash-link";
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
 import Project from "../components/projects/Project";
 
@@ -8,6 +8,20 @@ import classes from '../resources/css/pages/home.module.css';
 import projectsContent from "../resources/data/projectsContent";
 
 function Home () {
+    const [showIcon, setShowIcon] = useState(true);
+
+    const toggleIcon = ()=>{
+        setShowIcon(prev => !prev);
+    };
+
+    useEffect (()=>{
+        const interval = setInterval(toggleIcon, 1000); 
+
+        return () => {
+            clearInterval(interval);
+        }
+    },[])
+
     return (
         <div className={classes.home}>
             <div className={classes.introduction}>
@@ -15,15 +29,12 @@ function Home () {
                     <p>Hi, I'm</p>
                     <h1>Florina Osmani!</h1>
                     <div className={classes.note}>
-                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <i id='icon' className="fa-solid fa-triangle-exclamation" style={{ color: showIcon? 'black' : 'var(--blue-color)'}}></i>
                         <div className={classes.noteText}>
                             <p>This site is still under construction!</p>
                             <hr/>
                             <h3>Todos:</h3>
                             <ul>
-                                <li>
-                                    Responsive Design
-                                </li>
                                 <li>
                                     Mobile friendly interactivity
                                 </li>
@@ -78,7 +89,7 @@ function Home () {
                 </div>
             </div>
                 <div>
-                <h2 id='projects'>
+                <h2 id='projects' className={classes.h2}>
                     Projects
                 </h2>
                 <div className={classes.projectsContainer}>
@@ -91,7 +102,7 @@ function Home () {
                 </div>
             </div>
             <div className={classes.contact}>
-                <h2 id='contact'>
+                <h2 id='contact' className={classes.h2}>
                     Contact
                 </h2>
                 <p>

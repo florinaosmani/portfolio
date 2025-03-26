@@ -1,4 +1,6 @@
 export const handler = async (event, context)  => {
+    /* Change to wordnik once the API Key arrives */
+    console.log('im in the fetch function')
     try {
         const apiKey = process.env.MY_KEY;
         const { type } = event.queryStringParameters;

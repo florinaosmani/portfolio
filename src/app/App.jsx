@@ -8,6 +8,10 @@ import Poemify from '../features/poemify/Poemify.jsx';
 import SelfPortrait from '../pages/SelfPortrait.jsx';
 import '../resources/css/app.css';
 
+import { checkIfTouch } from '../features/touchSlice.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={ <Root /> } >
     <Route index element={ <Home /> } />
@@ -19,6 +23,21 @@ const router = createBrowserRouter(createRoutesFromElements(
 ))
 
 function App() {
+  const { isTouch } = useSelector(state => state.touch);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+      let isTouch;
+      if (window.matchMedia('(pointer: coarse)').matches) {
+        isTouch = true;
+      } else {
+        isTouch = false;
+      }
+
+      dispatch(checkIfTouch(isTouch));
+
+  },[]);
+
   return (
     <>
       <RouterProvider router={router} />

@@ -17,7 +17,6 @@
 }
 
 .scrollToTopContainer {
-    /* todo: figure out how to make it actually centered */
     position: fixed;
     bottom: 1rem;
     right: 1rem;
@@ -49,6 +48,8 @@
     text-align:start;
 }
 
+/* removed section, keeping code just in case
+
 .codeVideo {
     display: flex;
     justify-content: space-evenly;
@@ -56,11 +57,7 @@
 
 .codeVideo pre {
     width: fit-content;
-}
-
-.headerVideo {
-    width: 45%;
-}
+} */
 
 .code {
     display: flex;
@@ -81,3 +78,50 @@
 .videoVideo video{
     width: 40%;
 }
+
+.section pre {
+    scrollbar-width: thin;
+    scrollbar-color: var(--yellow-color) var(--off-white-color);
+}
+
+ /* media queries */
+
+ @media only screen and (max-width: 1060px) {
+    .codeCode {
+        display: block;
+    }
+
+    .codeCode pre {
+        width: fit-content;
+        margin: 0 auto;
+    }
+ }
+
+ @media only screen and (min-width: 451px) and (max-width: 850px) {
+    .videoVideo video {
+        margin: 0 auto;
+        width: 60%;
+    }
+ }
+
+ @media only screen and (max-width: 850px) {
+    .videoVideo {
+        display: block;
+    }
+
+    .codeCode {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .code {
+        width: 90%;
+        margin: 0 auto;
+    }
+ }
+
+ @media only screen and (max-width: 450px) {
+    .videoVideo video {
+        width: 90%;
+    }
+ }

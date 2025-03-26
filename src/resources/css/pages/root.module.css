@@ -1,8 +1,16 @@
+.main {
+    /* why didnt i use margin? 
+    don't change this please,
+    else the header will also somehow have a margin top! i am very confused
+    todo: figure out what is going on??*/
+    padding-top: 5rem;
+}
+
 .header {
     height: 3rem;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 100;
 }
 
 .nav {
@@ -35,27 +43,4 @@
 .active {
     font-weight: 500;
     font-size: 1.25rem;
-}
-
-.pulloutTab {
-    height: inherit;
-    width: inherit;
-}
-
-.header button {
-    position: absolute;
-    right: 2rem;
-    height: 2.5rem;
-    background-color: var(--button-color);
-    font-weight: 500;
-    font-size: 2rem;
-    border: 2px solid #000000;
-    border-top: none;
-    border-radius: 0 0 10% 10%;
-}
-
-.header button:hover {
-    font-weight: 700;
-    border: 3px solid black;
-    border-top: none;
 }

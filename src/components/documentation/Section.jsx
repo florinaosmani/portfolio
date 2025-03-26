@@ -16,7 +16,8 @@ function Section({ section }) {
                                 {pieceOfContent.data}
                             </p>
                         );
-                    case 'code-video':
+                    /*  removed section, keeping code just in case
+                        case 'code-video':
                         return (
                             <div className={classes.codeVideo} key={`cv_${index}`}>
                                 <pre>
@@ -36,7 +37,7 @@ function Section({ section }) {
                                     This video cannot be displayed.
                                 </video>
                             </div>
-                        );
+                        ); */
                     case 'code':
                         return (
                             <div className={classes.code} key={`c_${index}`}>

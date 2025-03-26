@@ -9,6 +9,7 @@ import { inputValueChange, addWord, addFetchWord, fetchWord, removeAll, updateAl
 
 function PromptGenerator () {
     const { inputValue, sentence, hasError, isLoading} = useSelector(state => state.sentence);
+    const { isTouch } = useSelector(state => state.touch);
     const dispatch = useDispatch();
 
     const handleChange = (event) => {
@@ -49,10 +50,12 @@ function PromptGenerator () {
         return (
             <div className={classes.promptGenerator}>
                 <h1>Prompt Generator</h1>
+                <p>Currently unavailable due to changes within the API.</p>
                 <div>
                     <div>
                         <form
                         onSubmit={handleSubmit}
+                        onBlur={isTouch? handleSubmit : undefined}
                         id='wordInputForm'>
                             <input type='text'
                             value={inputValue}
@@ -97,7 +100,7 @@ function PromptGenerator () {
                         <button
                         className={classes.button}
                         onClick={handleRemoveAll}>
-                            Remove all
+                            Remove
                         </button>
                     </div>
                 </div>
@@ -125,18 +128,6 @@ function PromptGenerator () {
             </div>
         );
     }
-
-    return (
-        <div className={classes.promptGenerator}>
-            
-            
-            <div>
-                <p>
-                    Something went wrong :(! Try reloading the page!
-                </p>
-            </div>
-        </div>
-    );
 };
 
 export default PromptGenerator;

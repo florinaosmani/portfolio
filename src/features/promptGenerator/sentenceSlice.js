@@ -5,6 +5,7 @@ export const fetchWord = createAsyncThunk(
     'sentence/fetchWord',
     async ({ index, type }, thunkAPI) => {
         try {
+            console.log('im about to fetch')
             const response = await fetch(`/.netlify/functions/fetchWord?type=${type}`);
             if (response.ok) {
                 const data = await response.json();

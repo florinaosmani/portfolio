@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import headerReducer from '../features/header/headerSlice.js';
 import sentenceReducer from '../features/promptGenerator/sentenceSlice.js';
 import poemifyReducer from '../features/poemify/poemifySlice.js';
+import touchReducer from '../features/touchSlice.js';
 
 const store = configureStore({
     reducer: {
-        header: headerReducer,
+        touch: touchReducer,
         sentence: sentenceReducer,
         poemify: poemifyReducer,
     }
