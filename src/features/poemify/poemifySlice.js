@@ -174,6 +174,10 @@ const poemifySlice = createSlice({
                     content: action.payload.content,
                     startIndex: action.payload.startIndex,
                     endIndex: action.payload.endIndex,
+                    initPosLeft: action.payload.initPosLeft,
+                    initPosRight: action.payload.initPosRight,
+                    initPosTop: action.payload.initPosTop,
+                    initPosBottom: action.payload.initPosBottom,
                 });
             } else if (poemBool) {
                 state.poem = state.poem.filter((selection, index) => {
@@ -183,12 +187,20 @@ const poemifySlice = createSlice({
                     content: action.payload.content,
                     startIndex: action.payload.startIndex,
                     endIndex: action.payload.endIndex,
+                    initPosLeft: action.payload.initPosLeft,
+                    initPosRight: action.payload.initPosRight,
+                    initPosTop: action.payload.initPosTop,
+                    initPosBottom: action.payload.initPosBottom,
                 });
             } else {
                 state.book.selections.push({
                     content: action.payload.content,
                     startIndex: action.payload.startIndex,
                     endIndex: action.payload.endIndex,
+                    initPosLeft: action.payload.initPosLeft,
+                    initPosRight: action.payload.initPosRight,
+                    initPosTop: action.payload.initPosTop,
+                    initPosBottom: action.payload.initPosBottom,
                 });
             }
         },
@@ -207,6 +219,10 @@ const poemifySlice = createSlice({
                     ...wordObj,
                     xPosition: action.payload.xPosition,
                     yPosition: action.payload.yPosition,
+                    initPosLeft: action.payload.initPosLeft,
+                    initPosRight: action.payload.initPosRight,
+                    initPosTop: action.payload.initPosTop,
+                    initPosBottom: action.payload.initPosBottom,
                 });
             } else {
                 const poemObj = state.poem[index];
@@ -215,16 +231,24 @@ const poemifySlice = createSlice({
                     ...poemObj,
                     xPosition: action.payload.xPosition,
                     yPosition: action.payload.yPosition,
+                    initPosLeft: action.payload.initPosLeft,
+                    initPosRight: action.payload.initPosRight,
+                    initPosTop: action.payload.initPosTop,
+                    initPosBottom: action.payload.initPosBottom,
                 });
             }
         },
         removeWord: (state, action) => {
-            const { content, startIndex, endIndex } = state.poem[action.payload];
+            const { content, startIndex, endIndex, initPosLeft, initPosRight, initPosTop, initPosBottom } = state.poem[action.payload];
             state.poem.splice(action.payload, 1);
             state.book.selections.push({
                 content: content,
                 startIndex: startIndex,
                 endIndex: endIndex,
+                initPosLeft: initPosLeft,
+                initPosRight: initPosRight,
+                initPosTop: initPosTop,
+                initPosBottom: initPosBottom,
             });
         },
         resetPoem : (state) => {
@@ -233,6 +257,10 @@ const poemifySlice = createSlice({
                     content: word.content,
                     startIndex: word.startIndex,
                     endIndex: word.endIndex,
+                    initPosLeft: word.initPosLeft,
+                    initPosRight: word.initPosRight,
+                    initPosTop: word.initPosTop,
+                    initPosBottom: word.initPosBottom,
                 })
             });
             state.poem = [];

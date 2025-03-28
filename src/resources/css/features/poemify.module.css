@@ -137,6 +137,13 @@
     box-shadow: inset 2px 2px black;
 }
 
+.shadow {
+    position: absolute;
+    background-color: var(--red-color);
+    opacity: 0.5;
+    z-index: 100;
+}
+
 /* the drag and drop part */
 
 .wordsAndPoemContainer {

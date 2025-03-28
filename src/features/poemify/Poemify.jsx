@@ -66,12 +66,17 @@ function Poemify () {
 
     const handleSelection = () => {
         const selection = document.getSelection();
+        const rect = selection.getRangeAt(0).getBoundingClientRect();
         //checks if selection exists and if it's not just a single space
         if (!selection.isCollapsed && selection.toString() !== ' ') {
             dispatch(setSelection({
                 content: selection.toString(),
                 startIndex: selection.getRangeAt(0).startOffset,
                 endIndex: selection.getRangeAt(0).endOffset,
+                initPosLeft: rect.left,
+                initPosRight: rect.right,
+                initPosTop: window.scrollY + rect.top,
+                initPosBottom: window.scrollY + rect.bottom,
             }));
             if (isTouch) {
                 dispatch(hideSelectionBox());
@@ -176,16 +181,22 @@ function Poemify () {
 
     const handleDrop = (event) => {
         if (event.target.className.includes('poemTextContainer') || event.target.id.includes('wordId')) {
-            const id = event.dataTransfer.getData('text/plain');  
+            const id = event.dataTransfer.getData('text/plain');
+            const idNum = id.split('_')[1];  
             const offSetX = Number(event.dataTransfer.getData('offSetX'));
             const offSetY = Number(event.dataTransfer.getData('offSetY'));
             const div = document.getElementById('poem').getBoundingClientRect();
             const xPosition = event.clientX - offSetX - div.left;
             const yPosition = event.clientY - offSetY - div.top;
+            console.log(idNum);
             dispatch(addWord({
                 id: id,
                 xPosition: xPosition,
-                yPosition: yPosition
+                yPosition: yPosition,
+                initPosLeft: selections[idNum].initPosLeft,
+                initPosRight: selections[idNum].initPosRight,
+                initPosTop: selections[idNum].initPosTop,
+                initPosBottom: selections[idNum].initPosBottom,
             }));
         }
         event.preventDefault();
@@ -261,6 +272,7 @@ function Poemify () {
         const divRect = document.getElementById('poem').getBoundingClientRect();
         const xPosition = event.changedTouches[0].clientX - draggedElement.offSetX - divRect.left;
         const yPosition = event.changedTouches[0].clientY - draggedElement.offSetY - divRect.top;
+        const idNum = event.target.id.split('_')[1];
         
         if (divRect.left < span.left &&
             divRect.right > span.right &&
@@ -281,12 +293,28 @@ function Poemify () {
                 event.target.style.zIndex = '';
                 event.target.style.cursor = 'grab';
                 event.target.style.backgroundColor = 'var(--off-white-color)';
-
-                dispatch(addWord({
-                    id: draggedElement.id,
-                    xPosition: xPosition,
-                    yPosition: yPosition,
-                }));
+                
+                if (event.target.id.includes('wordId')){
+                    dispatch(addWord({
+                        id: draggedElement.id,
+                        xPosition: xPosition,
+                        yPosition: yPosition,
+                        initPosLeft: poem[idNum].initPosLeft,
+                        initPosRight: poem[idNum].initPosRight,
+                        initPosTop: poem[idNum].initPosTop,
+                        initPosBottom: poem[idNum].initPosBottom,
+                    }))
+                } else {
+                    dispatch(addWord({
+                        id: draggedElement.id,
+                        xPosition: xPosition,
+                        yPosition: yPosition,
+                        initPosLeft: selections[idNum].initPosLeft,
+                        initPosRight: selections[idNum].initPosRight,
+                        initPosTop: selections[idNum].initPosTop,
+                        initPosBottom: selections[idNum].initPosBottom,
+                    }));
+                }
 
                 dispatch(setDraggingElement({
                     id: '',
@@ -370,7 +398,41 @@ function Poemify () {
                             display: selectionBox.display,
                             left: selectionBox.left,
                             top: selectionBox.topScroll
-                            }}>+</button>
+                            }}>
+                            +
+                        </button>
+                        {selections.map((selection, index)=>{
+                            const width = selection.initPosRight - selection.initPosLeft;
+                            const height = selection.initPosBottom - selection.initPosTop;
+                            return (
+                                <span
+                                className={classes.shadow}
+                                style={{
+                                    top: selection.initPosTop,
+                                    left: selection.initPosLeft,
+                                    width: width,
+                                    height: height
+                                }}
+                                key={`shadowSelection_${index}`}>
+                                </span>
+                            );
+                        })}
+                        {poem.map((word, index)=>{
+                            const width = word.initPosRight - word.initPosLeft;
+                            const height = word.initPosBottom - word.initPosTop;
+                            return (
+                                <span
+                                className={classes.shadow}
+                                style={{
+                                    top: word.initPosTop,
+                                    left: word.initPosLeft,
+                                    width: width,
+                                    height: height
+                                }}
+                                key={`shadowWord_${index}`}>
+                                </span>
+                            );
+                        })}
                     </div>
                 </div>
                 <div className={classes.bookSettingContainer}>
