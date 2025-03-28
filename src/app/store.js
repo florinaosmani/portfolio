@@ -9,7 +9,8 @@ const store = configureStore({
         touch: touchReducer,
         sentence: sentenceReducer,
         poemify: poemifyReducer,
-    }
+    },
 });
+
 
 export default store;

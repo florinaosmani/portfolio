@@ -23,19 +23,11 @@ const router = createBrowserRouter(createRoutesFromElements(
 ))
 
 function App() {
-  const { isTouch } = useSelector(state => state.touch);
   const dispatch = useDispatch();
 
   useEffect(()=>{
-      let isTouch;
-      if (window.matchMedia('(pointer: coarse)').matches) {
-        isTouch = true;
-      } else {
-        isTouch = false;
-      }
-
+      const isTouch = window.matchMedia('(pointer: coarse)').matches;
       dispatch(checkIfTouch(isTouch));
-
   },[]);
 
   return (

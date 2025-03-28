@@ -71,6 +71,19 @@ const poemifySlice = createSlice({
         poem: [],
         isLoading: false,
         hasError: false,
+        selectionBox: {
+            display: 'none',
+            top: '',
+            left: '',
+            topScroll: '',
+            initialScroll: '',
+        },
+        draggedElement: {
+            id: '',
+            offSetX: '',
+            offSetY: '',
+        },
+        dblClick: false,
     },
     reducers: {
         setTextSection: (state) => {
@@ -224,6 +237,32 @@ const poemifySlice = createSlice({
             });
             state.poem = [];
         },
+        showSelectionBox : (state, action) => {
+            state.selectionBox.left = action.payload.leftPosition;
+            state.selectionBox.top = action.payload.topPosition;
+            state.selectionBox.topScroll = action.payload.topScroll;
+            state.selectionBox.initialScroll = action.payload.initialScroll;
+            state.selectionBox.display = 'flex';
+        },
+        hideSelectionBox : (state) => {
+            state.selectionBox.display = 'none';
+            state.selectionBox.left = '';
+            state.selectionBox.top = '';
+            state.selectionBox.topScroll = '';
+            state.selectionBox.initialScroll = '';
+
+        },
+        updateScroll: (state, action) => {
+            state.selectionBox.topScroll = action.payload;
+        },
+        setDraggingElement: (state, action) => {
+            state.draggedElement.id = action.payload.id;
+            state.draggedElement.offSetX = action.payload.offSetX;
+            state.draggedElement.offSetY = action.payload.offSetY;
+        },
+        setDblClick: (state, action) => {
+            state.dblClick = action.paylaod;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -248,5 +287,5 @@ const poemifySlice = createSlice({
     }
 });
 
-export const { setTextSection, setTextLength, setSelection, removeSelection, addWord, removeWord, resetPoem, removeSingleSelection } = poemifySlice.actions;
+export const { setDblClick, setDraggingElement, updateScroll, hideSelectionBox, showSelectionBox, setTextSection, setTextLength, setSelection, removeSelection, addWord, removeWord, resetPoem, removeSingleSelection } = poemifySlice.actions;
 export default poemifySlice.reducer;

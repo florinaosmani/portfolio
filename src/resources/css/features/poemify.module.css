@@ -3,6 +3,9 @@
 .poemify {
     margin-bottom: 3rem;
 }
+.poemify * {
+    user-select: none;
+}
 
 /* Instructions */
 .instructions {
@@ -92,6 +95,15 @@
     cursor: text;
 }
 
+.bookTextContainer p {
+    user-select: text !important;
+}
+
+.bookTextContainer p::selection {
+    background-color: var(--blue-color);
+    color: white;
+}
+
 .bookSettingContainer {
     display: flex;
     width: 70%;
@@ -107,16 +119,29 @@
     box-shadow: inset -1px -1px 1px black;
 }
 
+.addWord {
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid black;
+    padding: 0.1rem;
+    padding-top: 0.3rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: var(--button-color);
+}
+
+.addWord:active {
+    box-shadow: inset 2px 2px black;
+}
+
 /* the drag and drop part */
 
 .wordsAndPoemContainer {
     display: flex;
     justify-content: space-evenly;
-}
-
-.bookTextContainer p::selection {
-    background-color: var(--blue-color);
-    color: white;
 }
 
 .poemTextContainer,
@@ -160,10 +185,9 @@
     line-height: 2rem;
     margin: 0.2rem;
     cursor: grab;
-}
-
-.wordsAndPoemContainer span:active {
-    cursor: grabbing;
+    touch-action: none;
+    user-select: none;
+    background-color: var(--off-white-color);
 }
 
 .poemTextContainer span {
@@ -172,6 +196,9 @@
     line-height: 2rem;
     position: absolute;
     cursor: grab;
+    touch-action: none;
+    user-select: none;
+    background-color: var(--off-white-color);
 }
 
 /* media queries */
@@ -227,6 +254,7 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         row-gap: 0.5rem;
+        column-gap: 0.2rem;
     }
 
     .wordsAndPoemContainer {
@@ -235,10 +263,15 @@
         margin: 0 auto;
     }
 
-    .poemContainer,
     .wordsContainer {
         width: 100%;
         height: 50vh;
+        position: static;
+    }
+
+    .poemContainer {
+        width: 100%;
+        height: 40rem;
         position: static;
     }
 
@@ -251,10 +284,14 @@
         margin-bottom: 0.2rem;
     }
 
-    .poemTextContainer,
     .wordsTextContainer{
         margin: 0;
         height: calc(50vh - 2rem);
+    }
+
+    .poemTextContainer {
+        margin: 0;
+        height: calc(100% - 2rem);
     }
 
     .wordsContainer {
