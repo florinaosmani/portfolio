@@ -141,7 +141,7 @@
     position: absolute;
     background-color: var(--red-color);
     opacity: 0.5;
-    z-index: 100;
+    z-index: 2;
 }
 
 /* the drag and drop part */
@@ -193,7 +193,6 @@
     margin: 0.2rem;
     cursor: grab;
     touch-action: none;
-    user-select: none;
     background-color: var(--off-white-color);
 }
 
@@ -204,7 +203,6 @@
     position: absolute;
     cursor: grab;
     touch-action: none;
-    user-select: none;
     background-color: var(--off-white-color);
 }
 

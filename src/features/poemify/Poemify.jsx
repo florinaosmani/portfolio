@@ -188,7 +188,6 @@ function Poemify () {
             const div = document.getElementById('poem').getBoundingClientRect();
             const xPosition = event.clientX - offSetX - div.left;
             const yPosition = event.clientY - offSetY - div.top;
-            console.log(idNum);
             dispatch(addWord({
                 id: id,
                 xPosition: xPosition,
@@ -244,16 +243,25 @@ function Poemify () {
     };
 
     const handleTouchMove = (event) => {
+        const oldTopPosition = event.target.getBoundingClientRect().top;
+
         if (event.target.id === draggedElement.id) {
             const topPosition = event.changedTouches[0].clientY - draggedElement.offSetY;
             const leftPosition = event.changedTouches[0].clientX - draggedElement.offSetX;
-            
             event.target.style.position = 'fixed';
             event.target.style.top = `${topPosition}px`;
             event.target.style.left = `${leftPosition}px`;
             event.target.style.zIndex = '100';
             event.target.style.cursor = 'grabbing';
-            console.log('i just changed the style' + event.target.id)
+
+            const bottomPosition = event.target.getBoundingClientRect().bottom;
+            const bottomScreen = screen.height - 5;
+            const moveDif = topPosition - oldTopPosition;
+            const scrollY = window.scrollY;
+
+            if (bottomPosition >= bottomScreen) {
+                window.scrollTo(0, scrollY - moveDif*2);
+            }
         }
     };
 
