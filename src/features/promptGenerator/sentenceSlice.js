@@ -5,14 +5,13 @@ export const fetchWord = createAsyncThunk(
     'sentence/fetchWord',
     async ({ index, type }, thunkAPI) => {
         try {
-            console.log('im about to fetch')
             const response = await fetch(`/.netlify/functions/fetchWord?type=${type}`);
             if (response.ok) {
                 const data = await response.json();
                 return {
                     index: index,
                     content: data.data.word};
-            }
+            } 
             throw new Error('Something went wrong');
         } catch (error) {
             console.log(error);
@@ -28,6 +27,7 @@ const sentenceSlice = createSlice({
         hasError: false,
         isLoading: false,
         fetchWords: [],
+        hasSpace: false,
     },
     reducers: {
         inputValueChange: (state, action) => {
@@ -97,6 +97,9 @@ const sentenceSlice = createSlice({
                 state.sentence[word.index].content = word.content;
             });
         },
+        toggleHasSpace: (state) => {
+            state.hasSpace = !state.hasSpace;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -119,5 +122,5 @@ const sentenceSlice = createSlice({
     },
 });
 
-export const { inputValueChange, addWord, addFetchWord, removeWord, lockToggle, makeEditable, makeNotEditable, showButtons, hideButtons, removeAll, updateAll } = sentenceSlice.actions;
+export const { toggleHasSpace, inputValueChange, addWord, addFetchWord, removeWord, lockToggle, makeEditable, makeNotEditable, showButtons, hideButtons, removeAll, updateAll } = sentenceSlice.actions;
 export default sentenceSlice.reducer;

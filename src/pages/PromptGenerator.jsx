@@ -5,24 +5,30 @@ import classes from '../resources/css/pages/promptGenerator.module.css';
 import FetchWord from '../features/promptGenerator/FetchWord';
 import Word from '../features/promptGenerator/Word';
 
-import { inputValueChange, addWord, addFetchWord, fetchWord, removeAll, updateAll } from '../features/promptGenerator/sentenceSlice';
+import { toggleHasSpace, inputValueChange, addWord, addFetchWord, fetchWord, removeAll, updateAll } from '../features/promptGenerator/sentenceSlice';
 
 function PromptGenerator () {
-    const { inputValue, sentence, hasError, isLoading} = useSelector(state => state.sentence);
+    const { inputValue, sentence, hasError, isLoading, hasSpace} = useSelector(state => state.sentence);
     const { isTouch } = useSelector(state => state.touch);
     const dispatch = useDispatch();
 
     const handleChange = (event) => {
         dispatch(inputValueChange(event.target.value));
+        if(hasSpace) {
+            dispatch(toggleHasSpace());
+        }
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         //todo: make the alert fancier like add another element or smth
         if (document.getElementById('input').value.includes(' ')) {
-            alert('Try adding one word at a time :)!');
+            dispatch(toggleHasSpace());
         } else {
             dispatch(addWord(document.getElementById('input').value));
+            if (hasSpace) {
+                dispatch(toggleHasSpace());
+            }
         }
     };
 
@@ -50,7 +56,7 @@ function PromptGenerator () {
         return (
             <div className={classes.promptGenerator}>
                 <h1>Prompt Generator</h1>
-                <p>Currently unavailable due to changes within the API.</p>
+                <p>{hasSpace ? 'Try adding one word at a time :)!' : null}</p>
                 <div>
                     <div>
                         <form
