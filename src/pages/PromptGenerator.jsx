@@ -49,91 +49,90 @@ function PromptGenerator () {
                 }));
             }
         });
-        Promise.all(fetchWords).then(()=>dispatch(updateAll()));
+        Promise.allSettled(fetchWords).then(()=>dispatch(updateAll()));
     };
 
-    if (!hasError) {
-        return (
-            <div className={classes.promptGenerator}>
-                <h1>Prompt Generator</h1>
-                <p>{hasSpace ? 'Try adding one word at a time :)!' : null}</p>
+    return (
+        <div className={classes.promptGenerator}>
+            <h1>Prompt Generator</h1>
+            <p>{hasSpace ? 'Try adding one word at a time :)!' : null}</p>
+            <p>{hasError ? 'Something went wrong :(! Lock all the existing words and try again!' : ''}</p>
+            <div>
                 <div>
-                    <div>
-                        <form
-                        onSubmit={handleSubmit}
-                        onBlur={isTouch? handleSubmit : undefined}
-                        id='wordInputForm'>
-                            <input type='text'
-                            value={inputValue}
-                            onChange={handleChange}
-                            id='input'
-                            placeholder='type here...'/>
-                            <button type='submit'
-                            form='wordInputForm'
-                            className={classes.button}>
-                                Add word
-                            </button>
-                        </form>
-                        <div>
-                            <button value='Noun'
-                            className={`${classes.noun} ${classes.wordType}`}
-                            onClick={handleClickWordType}>
-                                Noun
-                            </button>
-                            <button value='Verb'
-                            className={`${classes.verb} ${classes.wordType}`}
-                            onClick={handleClickWordType}>
-                                Verb
-                            </button>
-                            <button value='Adjective'
-                            className={`${classes.adjective} ${classes.wordType}`}
-                            onClick={handleClickWordType}>
-                                Adjective
-                            </button>
-                            <button value='Adverb'
-                            className={`${classes.adverb} ${classes.wordType}`}
-                            onClick={handleClickWordType}>
-                                Adverb
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <button
-                        className={classes.button}
-                        onClick={handleFetchWord}>
-                            {isLoading ? 'Loading' : 'GO'}
+                    <form
+                    onSubmit={handleSubmit}
+                    onBlur={isTouch? handleSubmit : undefined}
+                    id='wordInputForm'>
+                        <input type='text'
+                        value={inputValue}
+                        onChange={handleChange}
+                        id='input'
+                        placeholder='type here...'/>
+                        <button type='submit'
+                        form='wordInputForm'
+                        className={classes.button}>
+                            Add word
                         </button>
-                        <button
-                        className={classes.button}
-                        onClick={handleRemoveAll}>
-                            Remove
+                    </form>
+                    <div>
+                        <button value='Noun'
+                        className={`${classes.noun} ${classes.wordType}`}
+                        onClick={handleClickWordType}>
+                            Noun
+                        </button>
+                        <button value='Verb'
+                        className={`${classes.verb} ${classes.wordType}`}
+                        onClick={handleClickWordType}>
+                            Verb
+                        </button>
+                        <button value='Adjective'
+                        className={`${classes.adjective} ${classes.wordType}`}
+                        onClick={handleClickWordType}>
+                            Adjective
+                        </button>
+                        <button value='Adverb'
+                        className={`${classes.adverb} ${classes.wordType}`}
+                        onClick={handleClickWordType}>
+                            Adverb
                         </button>
                     </div>
                 </div>
-                
-                <div className={classes.sentence}>
-                    {sentence.map(wordObj => {
-                        if (wordObj.type === 'word') {
-                            return (
-                                <Word
-                                key={wordObj.keyId}
-                                index={wordObj.keyId}>
-                                    {wordObj.content}
-                                </Word>
-                            )
-                        } else if (wordObj.type === 'fetchWord') {
-                            return (
-                                <FetchWord
-                                key={wordObj.keyId}
-                                index={wordObj.keyId}
-                                type={wordObj.wordType}/>
-                            )
-                        }
-                    })}
+                <div>
+                    <button
+                    className={classes.button}
+                    onClick={handleFetchWord}>
+                        {isLoading ? 'Loading' : 'GO'}
+                    </button>
+                    <button
+                    className={classes.button}
+                    onClick={handleRemoveAll}>
+                        Remove
+                    </button>
                 </div>
             </div>
-        );
-    }
+            
+            <div className={classes.sentence}>
+                {sentence.map(wordObj => {
+                    if (wordObj.type === 'word') {
+                        return (
+                            <Word
+                            key={wordObj.keyId}
+                            index={wordObj.keyId}>
+                                {wordObj.content}
+                            </Word>
+                        )
+                    } else if (wordObj.type === 'fetchWord') {
+                        return (
+                            <FetchWord
+                            key={wordObj.keyId}
+                            index={wordObj.keyId}
+                            type={wordObj.wordType}/>
+                        )
+                    }
+                })}
+            </div>
+        </div>
+    );
 };
 
 export default PromptGenerator;

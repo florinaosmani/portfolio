@@ -7,7 +7,7 @@ content: [
     content:[
                {
                 type: 'paragraph',
-                data: 'content',
+                data: `content`,
                },
               {
                 type: 'code-video',
@@ -55,13 +55,23 @@ content: [
                   }
                 }
               },
+              {
+                type: 'video',
+                data: {
+                  src: src,
+                  type: 'video/type',
+                  className: 'className',
+                  ariaLabel: 'ariaLabel'
+                }
+              },
             ]
   }
 ];
 */
 
 import poemify from '../media/poemify.mp4';
-import poemMaker from '../media/poemMaker.mp4'
+import poemMaker from '../media/poemMaker.mp4';
+import poemifyMobile from '../media/poemifyMobile.mp4';
 
 export const content = [
   {
@@ -354,6 +364,41 @@ state.book.selections.push({
         type: 'paragraph',
         data: `At this point, I started receiving performance warnings in my dev tools telling me that Redux was storing too much data. Originally, I kept the entire book's text in the store but I had to change it so my fetch function only stores the currently displayed section in its different lengths.`
        },
+    ]
+  },
+  {
+    id: 'poemifyMobile',
+    header: 'Poemify Mobile Version',
+    content: [
+      {
+        type: 'paragraph',
+        data: `Initially I tested this page on an Iphone, where the drag and drop functionality was working. My phone broke while I was still testing which luckily made me test the page on an Android, where the drag and drop events weren't working.`,
+       },
+       {
+        type: 'paragraph',
+        data: `I ended up adding additional events for mobile, using touchStart, touchMove and touchEnd to change the elements position depending on the position of the touch event.`,
+       },
+       {
+        type: 'paragraph',
+        data: `Additionally I had to figure out a way to make the selections work better, since touchEnd doesn't seem to work well with text selections. Adding a button on every selectionChange did the job thankfully! I also ended up adding a scroll event that would let the button 'stay' in the right position, should the user scroll while selecting.`,
+       },
+       {
+        type: 'paragraph',
+        data: `Making the mobile-friendly version was a little tough, since every time I finished something, a new problem would show up! I had to create a long touch event and also a double tap event, since those weren't working reliably!`,
+       },
+       {
+        type: 'paragraph',
+        data: `In the end, this was all worth it! I love the mobile version even more than the desktop version. I even added a highlight on the selected words, which was super easy but seemed very hard only a few months ago! Progress! :)`,
+       },
+       {
+        type: 'video',
+        data: {
+          src: poemifyMobile,
+          type: 'video/mp4',
+          className: 'poemifyMobile',
+          ariaLabel: 'Shows the mobile version of the poemify page',
+        }
+      },
     ]
   },
   {

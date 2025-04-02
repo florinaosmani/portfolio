@@ -11,10 +11,11 @@ export const fetchWord = createAsyncThunk(
                 return {
                     index: index,
                     content: data.data.word};
-            } 
-            throw new Error('Something went wrong');
+            } else {
+                return thunkAPI.rejectWithValue(index);
+            }
         } catch (error) {
-            console.log(error);
+            return thunkAPI.rejectWithValue(index);
         }
     }
 );
@@ -91,11 +92,13 @@ const sentenceSlice = createSlice({
         },
         removeAll: (state) => {
             state.sentence = [];
+            state.fetchWords = [];
         },
         updateAll: (state) => {
             state.fetchWords.map(word => {
                 state.sentence[word.index].content = word.content;
             });
+            state.isLoading = false;
         },
         toggleHasSpace: (state) => {
             state.hasSpace = !state.hasSpace;
@@ -108,16 +111,15 @@ const sentenceSlice = createSlice({
                 state.hasError = false;
             })
             .addCase(fetchWord.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.hasError = false;
                 state.fetchWords.push({
                     index: action.payload.index,
                     content: action.payload.content,
                 });
             })
-            .addCase(fetchWord.rejected, (state) => {
-                state.isLoading = false;
+            .addCase(fetchWord.rejected, (state, action) => {
                 state.hasError = true;
+                state.fetchWords[action.payload].content = ':(';
             })
     },
 });
