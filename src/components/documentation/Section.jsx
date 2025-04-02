@@ -90,6 +90,21 @@ function Section({ section }) {
                                     </video>
                                 </div>
                             );
+                    case 'video': 
+                            return (
+                                <div className={classes.video} key={`v_${index}`}>
+                                    <video
+                                        src={pieceOfContent.data.src}
+                                        type={pieceOfContent.data.type}
+                                        className={classes[pieceOfContent.data.className]}
+                                        aria-label={pieceOfContent.data.ariaLabel}
+                                        autoPlay
+                                        loop
+                                        muted>
+                                        This video cannot be displayed.
+                                    </video>
+                                </div>
+                            )
                     default: 
                         return null;
                 }

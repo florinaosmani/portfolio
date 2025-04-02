@@ -28,7 +28,7 @@ function Home () {
                 <div className={classes.inline}>
                     <p>Hi, I'm</p>
                     <h1>Florina Osmani!</h1>
-                    <div className={classes.note}>
+                    {/* <div className={classes.note}>
                         <i id='icon' className="fa-solid fa-triangle-exclamation" style={{ color: showIcon? 'black' : 'var(--blue-color)'}}></i>
                         <div className={classes.noteText}>
                             <p>This site is still under construction!</p>
@@ -36,17 +36,17 @@ function Home () {
                             <h3>Todos:</h3>
                             <ul>
                                 <li>
-                                    Mobile friendly interactivity
+                                    Refactor, Refactor, refactor!
                                 </li>
                                 <li>
-                                    Refactor everything
+                                    Add comments 
                                 </li>
                                 <li>
                                     More to come probably...
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='text_introduction'>
                     <p>
