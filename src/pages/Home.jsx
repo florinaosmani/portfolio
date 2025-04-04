@@ -39,8 +39,10 @@ function Home () {
                             <ul>
                                 <li>
                                     Refactor, Refactor, refactor!
+                                    Refactor, Refactor, refactor!
                                 </li>
                                 <li>
+                                    Add comments 
                                     Add comments 
                                 </li>
                                 <li>
