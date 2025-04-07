@@ -64,9 +64,14 @@ function Home () {
                         but nothing stuck until I discovered front-end development. It combines creativity, problem-solving,
                         and limitless learning, so there's always something new to discover!
                     </p>
-                    {/* <p>
-                        Right now, I'm working on learning ** add whatever im learing next **
-                    </p> */}
+                    <p>
+                        Right now, I'm doing the&nbsp;
+                        <a href='https://www.edx.org/learn/web-accessibility/the-world-wide-web-consortium-w3c-introduction-to-web-accessibility'
+                         target='_blank'>
+                            "W3Cx: Introduction to Web Accessibility"
+                        </a>
+                        &nbsp;course on edx.org!
+                    </p>
                     <p>
                         Check out my&nbsp;
                         <HashLink 
