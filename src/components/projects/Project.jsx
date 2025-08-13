@@ -10,7 +10,8 @@ function Project ({ data, index }) {
             aria-label={data.altText}
             autoPlay
             loop
-            muted>
+            muted
+            playsInline>
                 <source src={data.videoSrc} type='video/mp4'/>
                 Video not showing..
             </video>

@@ -33,6 +33,7 @@ function Section({ section }) {
                                     autoPlay
                                     loop
                                     muted
+                                    playsInline
                                     >
                                     This video cannot be displayed.
                                 </video>
@@ -74,6 +75,7 @@ function Section({ section }) {
                                         autoPlay
                                         loop
                                         muted
+                                        playsInline
                                         >
                                         This video cannot be displayed.
                                     </video>
@@ -85,6 +87,7 @@ function Section({ section }) {
                                         autoPlay
                                         loop
                                         muted
+                                        playsInline
                                         >
                                         This video cannot be displayed.
                                     </video>
@@ -100,7 +103,8 @@ function Section({ section }) {
                                         aria-label={pieceOfContent.data.ariaLabel}
                                         autoPlay
                                         loop
-                                        muted>
+                                        muted
+                                        playsInline>
                                         This video cannot be displayed.
                                     </video>
                                 </div>
