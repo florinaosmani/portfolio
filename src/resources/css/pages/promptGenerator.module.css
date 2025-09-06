@@ -11,10 +11,9 @@ just so its matching
 .wordType,
 .promptGenerator input {
     font-family: var(--main-font);
-    font-size: 1rem;
     border-radius: 3px;
     margin: 0.5rem;
-    width: 7rem;
+    width: 10%;
     color: black;
 }
 
@@ -79,5 +78,37 @@ just so its matching
     /* for some reason the 'add word' button was always bold? */
     .button[type='submit'] {
         font-weight: 400;
+    }
+}
+
+@media only screen and (max-width: 860px){
+    .button,
+    .wordType,
+    .promptGenerator input {
+        width: 15%;
+    }
+}
+
+@media only screen and (max-width: 580px){
+    .button,
+    .wordType,
+    .promptGenerator input {
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .button,
+    .wordType,
+    .promptGenerator input {
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    .button,
+    .wordType,
+    .promptGenerator input {
+        width: 30%;
     }
 }

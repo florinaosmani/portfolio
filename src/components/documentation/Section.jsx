@@ -109,6 +109,19 @@ function Section({ section }) {
                                     </video>
                                 </div>
                             )
+                    case 'image-image':
+                        return (
+                            <div className={classes.imageImage} key={`ii_${index}`}>
+                                <img 
+                                src={pieceOfContent.data.image1.src}
+                                className={classes[pieceOfContent.data.image1.className]}
+                                alt={pieceOfContent.data.image1.altText}/>
+                                <img 
+                                src={pieceOfContent.data.image2.src}
+                                className={classes[pieceOfContent.data.image2.className]}
+                                alt={pieceOfContent.data.image2.altText}/>
+                            </div>
+                        )
                     default: 
                         return null;
                 }

@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import classes from '../resources/css/pages/promptGenerator.module.css';
 
@@ -8,6 +9,12 @@ import Word from '../features/promptGenerator/Word';
 import { toggleHasSpace, inputValueChange, addWord, addFetchWord, fetchWord, removeAll, updateAll } from '../features/promptGenerator/sentenceSlice';
 
 function PromptGenerator () {
+
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[]);
+
+
     const { inputValue, sentence, hasError, isLoading, hasSpace} = useSelector(state => state.sentence);
     const { isTouch } = useSelector(state => state.touch);
     const dispatch = useDispatch();

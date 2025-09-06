@@ -1,7 +1,18 @@
+.border {
+    width: 80%;
+    height: 28%;
+    min-width: 250px;
+    background-color: var(--blue-color);
+    border-radius: 22px;
+}
+
 .project {
-    width: 30%;
-    max-width: 250px;
-    height: 12rem;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    top: 50%;
+    left: 50%;
     border: solid 2px black;
     border-radius: 20px;
     overflow: hidden;
@@ -21,7 +32,8 @@
     width: 100%;
     height: 30%;
     z-index: 10;
-    line-height: 1rem;
+    line-height: 1.3rem;
+    text-align: center;
 }
 
 .backgroundH2,
@@ -53,55 +65,54 @@
 
 /* Media Queries */
 
+@media only screen and (max-width: 1050px) {
+    /* bigger tablets */
+    .border {
+        width: 35%;
+        height: 45%;
+    }  
+} 
+
+@media only screen and (max-width: 670px) {
+    /* bigger phones & smaller tablets */
+    .border {
+        width: 80%;
+        height: 25%;
+    }
+}
+
 @media only screen and (max-width: 400px) {
     /* super small devices */
-    .project {
-        width: 70%;
-        height: 8rem;
-    }
-
-    .text {
-        height: 50%;
-        line-height: 1.2rem;
-    }
-
-    .text p {
-        font-size: 1rem;
-    }
-
-    .text h2 {
-        font-size: 1.25rem;
+    .border {
+        width: 90%;
+        height: 25%;
     }
 }
 
-@media only screen and (min-width:401px) and (max-width: 620px) {
-    /* bigger phones & smaller tablets */
-    .project {
-        width: 60%;
-        height: 9rem;
-    }
-
-    .text {
-        height: 50%;
-        line-height: 1.2rem;
-    }
-
-    .text p {
-        font-size: 1rem;
-    }
-
-    .text h2 {
-        font-size: 1.25rem;
+@media only screen and (min-width: 1920px) {
+    .border {
+        width: 90%;
     }
 }
 
-@media only screen and (min-width:621px) and (max-width: 890px) {
-    /* bigger tablets */
-    .text {
-        height: 40%;
+@media only screen and (min-width: 2560px) {
+    .project {
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        border: solid 5px black;
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (min-width: 5120px) {
+    .project {
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        border: solid 10px black;
+        border-radius: 40px;
     }
 
-    .text p {
-        font-size: 1rem;
+    .border {
+        border-radius: 44px;
     }
-} 
+}

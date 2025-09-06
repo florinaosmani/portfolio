@@ -64,6 +64,23 @@ content: [
                   ariaLabel: 'ariaLabel'
                 }
               },
+              {
+                type: 'image-image',
+                data: {
+                  image1: {
+                    src: src,
+                    type: 'image/type',
+                    className: 'className',
+                    altText: 'altText',
+                  },
+                  image2: {
+                    src: src,
+                    type: 'image/type',
+                    className: 'className',
+                    altText: 'altText',
+                  }
+                }
+              },
             ]
   }
 ];
@@ -129,7 +146,7 @@ export const content = [
     content: [
       {
         type: 'paragraph',
-        data: `I wanted to create a customizable prompt generator and needed an API to handle word requests. API-Ninjas was perfect, but it required a hidden API key.`
+        data: `I wanted to create a customizable prompt generator and needed an API to handle word requests. API-Ninjas was perfect, but it required a hidden API key. (Edit: Had to change to Wordnik's API, since the feature I needed within API Ninja suddenly cost money.)`
       },
       {
         type: 'paragraph',
@@ -457,7 +474,33 @@ state.book.selections.push({
                 data: `The leaves were the most enjoyable and rewarding part and I can't wait to come up with other ideas for CSS animation!`,
                },
             ]
-  }
+  },
+  {
+  id: 'redesign',
+  header: 'Getting A CSS makeover',
+  content:[
+              {
+              type: 'paragraph',
+              data: `The website desperately needed a new redesign. I still wanted to keep it simple for now, but make it a little more interesting to look at.`,
+              },
+              {
+              type: 'paragraph',
+              data: `This proved to me how much progress I have made, even if I didn't have much time lately to invest in learning. I had recently started creating a website for my art, which had been a little more challenging regarding the CSS and the little CSS project I had done previously really paid off.`,
+              },
+              {
+              type: 'paragraph',
+              data: `My art website has to wait a little longer to be finished but even so it has already provided me with so many opportunities in learning.`,
+              },
+              {
+              type: 'paragraph',
+              data: `This redesign was a lot of fun, especially because I was able to fix a lot of small design issues that were bothering me. For example the links that on hover will make the other links in the list jump a little to the side. The fix was so simple, too! I only had to assign them each their fixed width and height!`,
+              },
+              {
+              type: 'paragraph',
+              data: `The media queries for larger screen sizes were difficult because I had to guess what it would look like in acutality, since I can only test this on DevTools and my small laptop. I hope they look alright...`,
+              },
+            ]
+  },
 ];
 
 export default content;

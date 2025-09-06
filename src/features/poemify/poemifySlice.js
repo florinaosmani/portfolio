@@ -83,7 +83,6 @@ const poemifySlice = createSlice({
             offSetX: '',
             offSetY: '',
         },
-        dblClick: false,
     },
     reducers: {
         setTextSection: (state) => {
@@ -288,9 +287,6 @@ const poemifySlice = createSlice({
             state.draggedElement.offSetX = action.payload.offSetX;
             state.draggedElement.offSetY = action.payload.offSetY;
         },
-        setDblClick: (state, action) => {
-            state.dblClick = action.paylaod;
-        }
     },
     extraReducers: (builder) => {
         builder

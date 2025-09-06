@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import classes from '../../resources/css/features/poemify.module.css';
-
+/* TODO::::: MOVING WHILE ALREADY IN POEM CONTAINER ISNT WORKING !!!!!! */
 import { fetchBook,
     setTextSection,
     setTextLength,
@@ -15,8 +15,7 @@ import { fetchBook,
     showSelectionBox,
     hideSelectionBox,
     updateScroll,
-    setDraggingElement,
-    setDblClick} from './poemifySlice';
+    setDraggingElement} from './poemifySlice';
 
 import throttle from '../../utility/throttle';
 
@@ -188,15 +187,29 @@ function Poemify () {
             const div = document.getElementById('poem').getBoundingClientRect();
             const xPosition = event.clientX - offSetX - div.left;
             const yPosition = event.clientY - offSetY - div.top;
-            dispatch(addWord({
-                id: id,
-                xPosition: xPosition,
-                yPosition: yPosition,
-                initPosLeft: selections[idNum].initPosLeft,
-                initPosRight: selections[idNum].initPosRight,
-                initPosTop: selections[idNum].initPosTop,
-                initPosBottom: selections[idNum].initPosBottom,
-            }));
+        
+            if (id.includes('wordId')){
+                    console.log('Im dropped')
+                    dispatch(addWord({
+                        id: id,
+                        xPosition: xPosition,
+                        yPosition: yPosition,
+                        initPosLeft: poem[idNum].initPosLeft,
+                        initPosRight: poem[idNum].initPosRight,
+                        initPosTop: poem[idNum].initPosTop,
+                        initPosBottom: poem[idNum].initPosBottom,
+                    }))
+                } else {
+                    dispatch(addWord({
+                        id: id,
+                        xPosition: xPosition,
+                        yPosition: yPosition,
+                        initPosLeft: selections[idNum].initPosLeft,
+                        initPosRight: selections[idNum].initPosRight,
+                        initPosTop: selections[idNum].initPosTop,
+                        initPosBottom: selections[idNum].initPosBottom,
+                    }));
+                }
         }
         event.preventDefault();
     };

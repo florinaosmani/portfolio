@@ -66,6 +66,12 @@ const leafOffset = [
 ];
 
 function SelfPortrait () {
+    
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[]);
+
+
     /* i used useState here instead of using redux because this seems simpler
     this makes it so the animation works if the window is resized while its already playing */
     const getDivHeight = () => {

@@ -1,10 +1,24 @@
 .home {
-    text-align: center;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 0.25fr 2fr 1.5fr;
+    gap: 3rem 0rem;
+    padding: 0 3rem 0 7rem;
 }
 
 .introduction {
-    width: 75%;
-    margin: 0 auto 3rem auto;
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+.contact {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+.inline {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
 }
 
 .inline h1,
@@ -14,51 +28,39 @@
 
 .inline h1 {
     margin-left: 1rem;
-}
-
-.inline {
-    margin-bottom: 3rem;
+    
 }
 
 .introduction p {
+    text-align: justify;
     margin-bottom: 1rem;
 }
 
-.introduction a {
-    color: black;
-    font-weight: 500;
-}
-
-.introduction a:hover {
-    font-weight: 700;
-}
-
-.icons i {
-    font-size: 2rem;
-    margin-right: 1rem;
-}
-
-.icons {
-    margin-top: 2rem;
-    color: black;
-}
-
-.projectsContainer {
-    display: flex;    
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 3rem 4rem;
-    margin-bottom: 3rem;
+.introduction p:last-child{
+    margin-bottom: 0;
 }
 
 .h2 {
-    margin-bottom: 3rem;
-    font-size: 2rem;
-    font-weight: 500;
+    margin-bottom: 1rem;
 }
 
-.bottom {
-    margin-bottom: 2rem;
+.icons {
+    margin-top: 1rem;
+}
+
+.icons i {
+    font-size: 2.2rem;
+}
+
+.icons ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icons li {
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .icons a i {
@@ -69,8 +71,339 @@
     font-size: 2.5rem;
 }
 
-/* warning note */
-.note {
+.skills {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    margin-left: 2rem;
+}
+
+.skillsFlex {
+    display: grid;
+    grid-column: 50% 50%;
+}
+
+.leftList {
+    grid-column: 1 / 2;
+}
+
+.rightList {
+    grid-column: 2 / 3;
+}
+
+.skillsFlex ul {
+    padding-left: 1rem;
+    list-style-type: disc;
+}
+
+.projectsContainer {
+    grid-column: 3 / 4;
+    grid-row: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-evenly;
+}
+
+/* Decoration */
+
+.hr {
+    border-color: rgba(0, 0, 0, 0.8);
+}
+
+.line {
+    min-height: 100%;
+    width: 10px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    z-index: 101;
+}
+
+.leftLine {
+    left: 2rem;
+    background-color: var(--red-color);
+}
+
+.rightLine {
+    left: 4rem;
+    background-color: var(--blue-color);
+}
+
+
+/* media queries */
+
+@media only screen and (max-width: 1050px) {
+    
+    .home {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 0.25fr 2fr 2.1fr 1.2fr;
+    }
+
+    .introduction {
+        grid-column: 1 / 3;
+    }
+
+    .inline {
+        grid-column: 1 / 3;
+    }
+
+    .projectsContainer {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 3rem;
+        align-content: space-around;
+    }
+
+    .contact,
+    .skills {
+        grid-row: 4 / 5;
+    }
+
+    .contact {
+        grid-column: 1 / 2;
+    }
+
+    .skills {
+        grid-column: 2 / 3;
+        margin-left: 3rem;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .line {
+        width: 8px;
+    }
+
+    .leftLine {
+        left: 1.5rem;
+    }
+
+    .rightLine {
+        left: 3rem;
+    }
+
+    .home {
+        padding: 0 2rem 0 5rem;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .home {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 0.1fr 2fr 3fr 0.5fr 0.8fr;
+        gap: 2rem 0rem;
+    }
+
+    .skills {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+        margin-left: 0;
+    }
+
+    .contact {
+        grid-column: 1 / 3;
+        grid-row: 5 / 6;
+    }
+
+    .projectsContainer {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .line {
+        width: 5px;
+    }
+
+    .leftLine {
+        left: 1rem;
+    }
+
+    .rightLine {
+        left: 2rem;
+    }
+
+    .home {
+        padding: 0 1rem 0 3rem;
+        grid-template-rows: 0.1fr 2fr 3fr 0.5fr 0.7fr;
+    }
+
+    .inline p,
+    .inline h1 {
+        display: block;
+        text-align: left;
+    }
+
+    .inline p {
+        margin-bottom: 0.3rem;
+    }
+
+    .inline h1 {
+        margin-left: 0;
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .home {
+        grid-template-rows: 0.1fr 2fr 2fr 0.5fr 0.6fr;
+    }
+
+    .skillsFlex {
+        display: block;
+    }
+}
+
+/* this is where things get tough cos i can't see it on an actual big screen */
+@media only screen and (min-width: 1920px) {
+    .line {
+        width: 15px;
+    }
+
+    .leftLine {
+        left: 3rem;
+    }
+
+    .rightLine {
+        left: 5rem;
+    }
+
+    .home {
+        padding: 0 4rem 0 8rem;
+        grid-template-columns: 3fr 4fr 3.5fr;
+        grid-template-rows: 0.5fr 2fr 1.5fr;
+        height: calc(100vh - 5rem);
+    }
+
+    .icons {
+        margin-top: 1.5rem;
+    }
+
+    .icons i {
+        font-size: 2.7rem;
+    }
+
+    .icons li {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .icons a i:hover {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    .home {
+        height: calc(100vh - 9rem);
+    }
+    
+    .projectsContainer {
+        justify-content: space-between;
+        padding-bottom: 3rem;
+    }
+
+    .introduction p {
+        margin-bottom: 3rem;
+    }
+
+    .introduction p:last-child {
+        margin-bottom: 0;
+    }
+
+    .icons {
+        margin-top: 2rem;
+    }
+
+    .icons i {
+        font-size: 3.2rem;
+    }
+
+    .icons li {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .icons a i:hover {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (min-width: 3840px) {
+    .line {
+        width: 25px;
+    }
+
+    .leftLine {
+        left: 3rem;
+    }
+
+    .rightLine {
+        left: 7rem;
+    }
+
+    .home {
+        height: calc(100vh - 12rem);
+        padding: 0 13rem 0 20rem;
+        column-gap: 10em;
+    }
+
+    .introduction p {
+        margin-bottom: 5rem;
+        margin-left: 5rem;
+    }
+
+    .introduction p:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact {
+        margin-left: 5rem;
+    }
+
+    .icons {
+        margin-top: 2.5rem;
+    }
+
+    .icons i {
+        font-size: 3.7rem;
+    }
+
+    .icons li {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .icons a i:hover {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (min-width: 5120px) {
+    .icons {
+        margin-top: 3.5rem;
+    }
+
+    .icons i {
+        font-size: 6rem;
+    }
+
+    .icons li {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .icons a i:hover {
+        font-size: 6.5rem;
+    }
+}
+/* warning note not needed right now*/
+/* .note {
     display: inline;
     margin-left: 1rem;
     height: 3rem;
@@ -112,10 +445,4 @@
 .noteText li{
     list-style: disc;
     margin-left: 1rem; 
-}
-
-/* contact */
-.contact {
-    width: 90%;
-    margin: 0 auto;
-}
+} */

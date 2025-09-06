@@ -16,8 +16,8 @@
 }
 
 .icon {
-    width: 2.625rem;
-    height: 2.375rem;
+    width: 3rem;
+    height: 2.5rem;
     border: 2px solid black;
     border-top: 0px;
     border-radius: 0 0 3px 3px;
@@ -53,18 +53,9 @@
 
 /* actual app only top part*/
 
-.poemify h2 {
-    font-size: 1.5rem;
-}
-
-.poemify h3 {
-    font-size: 1rem;
-}
-
 .poemify button {
     font-family: var(--main-font);
     background-color: var(--button-color);
-    font-size: 1rem;
     border-radius: 3px;
     min-height: 2rem;
     color: black;
@@ -162,7 +153,18 @@
 .wordsContainer {
     width: 40%;
     height: 30rem;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.poemContainer button,
+.wordsContainer button {
+    width: 30%;
+    margin-bottom: 0.5rem;
+}
+
+.wordsContainer button {
+    margin-left: auto;
 }
 
 .poemTextContainer,
@@ -172,17 +174,7 @@
     height: 100%;
 }
 
-.wordsContainer button {
-    position: absolute;
-    right: 0;
-    top:0;
-}
-.wordsTextContainer {
-    margin-top: 2.5rem;
-}
-
 .poemTextContainer {
-    margin-top: 0.5rem;
     position: relative;
 }
 
@@ -194,6 +186,7 @@
     cursor: grab;
     touch-action: none;
     background-color: var(--off-white-color);
+    padding: 0.1rem;
 }
 
 .poemTextContainer span {
@@ -204,11 +197,46 @@
     cursor: grab;
     touch-action: none;
     background-color: var(--off-white-color);
+    padding: 0.1rem;
 }
 
 /* media queries */
+@media only screen and (max-width: 1170px) {
+    .poemContainer button,
+    .wordsContainer button {
+        width: 35%;
+    }
+}
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 1000px) {
+    .poemContainer button,
+    .wordsContainer button {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .poemContainer button,
+    .wordsContainer button {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .poemContainer button,
+    .wordsContainer button {
+        width: 55%;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 650px) {
+    .poemContainer button,
+    .wordsContainer button {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
     .instructions {
         position: static;
         z-index: 1;
@@ -303,4 +331,100 @@
         margin-bottom: 1.5rem;
     }
 
+}
+
+@media only screen and (min-width:1920px) {
+    .instructions span {
+        font-size: 2.5rem;
+    }
+
+    .icon {
+        width: 3.5rem;
+        height: 3rem;
+    }
+
+    .poemContainer,
+    .wordsContainer {
+        height: 40rem;
+    }
+
+    .wordsTextContainer span,
+    .poemTextContainer span {
+        line-height: 2.5rem;
+        padding: 0.2rem;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    .instructions span {
+        font-size: 3rem;
+    }
+
+    .icon {
+        width: 4rem;
+        height: 3.5rem;
+    }
+
+    .poemContainer,
+    .wordsContainer {
+        height: 50rem;
+    }
+
+    .wordsTextContainer span,
+    .poemTextContainer span {
+        line-height: 3rem;
+        padding: 0.3rem;
+    }
+}
+
+@media only screen and (min-width: 3840px) {
+    .instructions span {
+        font-size: 3.5rem;
+    }
+
+    .icon {
+        width: 4.5rem;
+        height: 4rem;
+    }
+
+    .bookDataContainer {
+        width: 50%;
+    }
+
+    .bookSettingContainer {
+        width: 50%;
+    }
+
+    .poemContainer,
+    .wordsContainer {
+        height: 60rem;
+    }
+    
+    .wordsTextContainer span,
+    .poemTextContainer span {
+        line-height: 3.5rem;
+        padding: 0.4rem;
+    }
+}
+
+@media only screen and (min-width: 5120px) {
+    .instructions span {
+        font-size: 4.5rem;
+    }
+
+    .icon {
+        width: 5.5rem;
+        height: 5rem;
+    }
+
+    .poemContainer,
+    .wordsContainer {
+        height: 90rem;
+    }
+
+    .wordsTextContainer span,
+    .poemTextContainer span {
+        line-height: 4.5rem;
+        padding: 0.5rem;
+    }
 }
