@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-
+/* SOMETHING GOES WRONG A LOT?? WHATS GOING ON??? */
 import classes from '../resources/css/pages/promptGenerator.module.css';
 
 import FetchWord from '../features/promptGenerator/FetchWord';
