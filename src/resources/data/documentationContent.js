@@ -146,6 +146,10 @@ export const content = [
     content: [
       {
         type: 'paragraph',
+        data: `*EDIT 24.09.2025: There seem to be some issues here which I sadly haven't had time to resolve. I hope to resolve them as soon as possible.*`
+      },
+      {
+        type: 'paragraph',
         data: `I wanted to create a customizable prompt generator and needed an API to handle word requests. API-Ninjas was perfect, but it required a hidden API key. (Edit: Had to change to Wordnik's API, since the feature I needed within API Ninja suddenly cost money.)`
       },
       {

@@ -108,21 +108,22 @@ function Home () {
                 <div className={classes.introduction}>
                     <p>
                         My path to web development has been long but enlightening.
-                        I started in electrical engineering at ETH for a year but I found it too theoretical.
-                        Seeking a creative outlet, I started preparatory training at ZHdK,
-                        but when it felt more like work than passion, I moved on.
+                        I started in electrical engineering at ETH for a year but I found it too theoretical and dry.  
                     </p>
                     <p>
-                        I explored various jobs, took a make-up artistry course, and even studied psychology for a semester,
-                        but nothing stuck until I discovered front-end development. It combines creativity, problem-solving,
-                        and limitless learning, so there's always something new to discover!
+                        I tried out a few other directions, but nothing really stuck until I discovered front-end development.
+                        It felt like the perfect mix of creativity, problem-solving and logical thinking. Every day I got
+                        to try something new and watch my ideas take shape.
                     </p>
                     <p>
-                        Since I enjoyed JavaScript and the logic behind creating an app the most  out of everything I had learned, I decided I
-                        needed to learn more about how different kinds of applications are developed. That's why I'm
-                        currently attending Wiss Schulen für Wirtschaft Informatik Immobilien and getting an EFZ diploma
-                        in application development. I look forward to gaining new skills and applying them in my professional journey,
-                        and especially to having the experience to make all my ideas come to life.
+                        Learning JavaScript opened up a whole world of possibilities that once felt out of reach.
+                        I was amazed at how much I could build even with my limited knowledge and I couldn't stop imagining what I might
+                        create if I learned more.
+                    </p>
+                    <p>
+                        That's why I'm currently attending Wiss Schulen für Wirtschaft Informatik Immobilien and working toward my EFZ diploma
+                        in application development. I can't wait to keep learning, become a strong contributor in a professional environment and
+                        use what I learn to build the personal projects I've been dreaming about.
                     </p>
                 </div>
                 <div className={classes.projectsContainer}>
