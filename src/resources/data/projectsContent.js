@@ -23,6 +23,13 @@ const projectsContent = [
         altText: 'video shows self-portrait',
         hoverText: 'A little self-portrait',
         navLink: 'selfPortrait',
+    },
+    {
+        header: 'Hex/Bin/Dec Converter',
+        videoSrc: cssSelfPortrait,
+        altText: 'shows a converter',
+        hoverText: '',
+        navLink: 'calc',
     }
 ];
 

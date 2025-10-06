@@ -6,6 +6,7 @@ import Documentation from '../pages/Documentation.jsx';
 import PromptGenerator from '../pages/PromptGenerator.jsx';
 import Poemify from '../features/poemify/Poemify.jsx';
 import SelfPortrait from '../pages/SelfPortrait.jsx';
+import Calc from '../pages/Calc.jsx';
 import '../resources/css/app.css';
 
 import { checkIfTouch } from '../features/touchSlice.js';
@@ -19,6 +20,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='poemify' element={ <Poemify /> } />
     <Route path='documentation' element={ <Documentation /> } />
     <Route path='selfPortrait' element={ <SelfPortrait /> } />
+    <Route path='calc' element={ <Calc /> } />
   </Route>
 ))
 
