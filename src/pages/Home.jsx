@@ -48,7 +48,6 @@ function Home () {
                     const html = document.documentElement;
                     const height = Math.max(body.scrollHeight, body.offsetHeight,
                     html.clientHeight, html.scrollHeight, html.offsetHeight);
-                    console.log(body.clientWidth)
                     setWidth(body.clientWidth);
                     setHeight(height);
             },100);

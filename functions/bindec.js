@@ -6,11 +6,11 @@ function binToDec(binNum) {
     binArr.forEach((char, i) => {
         const power = binArr.length - 1 - i;
         dec += Number(char)*(2**power);
-        
     })
 
     return dec;
 }
+
 
 function decToBin (decNum) {
     /* 64/2 = 32 div 0 mod, 32/2 = 16 div 0 mod 16/2= 8 div 0 mod 8/2=4 div 0 mod 4/2=2 div 0 mod 2/2=1 div mod 0 1/2= 0 mod 1 _>
@@ -30,9 +30,10 @@ function decToBin (decNum) {
 
 }
 
-function decToHex (decNum) {
-    const hexChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
 
+const hexChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+
+function decToHex (decNum) {
     let num = decNum;
     let hexArr = [];
 
@@ -52,7 +53,27 @@ function decToHex (decNum) {
 
 
 function hexToDec (hexNum) {
+    
+    const hexArr = hexNum.split('');
+    
+    let dec = 0;
 
+    hexArr.forEach((char, i) => {
+        const hexId = hexChars.indexOf(char);
+        console.log(hexId);
+        const power = hexArr.length - 1 - i;
+        dec += Number(hexId)*(16**power);
+    })
+
+    return dec;
 }
 
-export { binToDec, decToBin, decToHex, hexToDec };
+function binToHex (binNum) {
+    return decToHex(binToDec(binNum));
+}
+
+function hexToBin (hexNum) {
+    return decToBin(hexToDec(hexNum));
+}
+
+export { binToDec, decToBin, decToHex, hexToDec, binToHex, hexToBin };
