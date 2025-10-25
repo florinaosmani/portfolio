@@ -9,7 +9,7 @@ function binToDec(binNum) {
     })
 
     return dec;
-}
+};
 
 
 function decToBin (decNum) {
@@ -28,7 +28,7 @@ function decToBin (decNum) {
 
     return binString;
 
-}
+};
 
 
 const hexChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
@@ -49,12 +49,12 @@ function decToHex (decNum) {
     })
 
     return hexInHex.join('');
-}
+};
 
 
 function hexToDec (hexNum) {
     
-    const hexArr = hexNum.split('');
+    const hexArr = hexNum.toUpperCase().split('');
     
     let dec = 0;
 
@@ -66,14 +66,58 @@ function hexToDec (hexNum) {
     })
 
     return dec;
-}
+};
+
+function octToDec(octNum) {
+    const octArr = octNum.split('');
+
+    let dec = 0;
+
+    octArr.forEach((char, i) => {
+        const power = octArr.length - 1 - i;
+        dec += Number(char)*(8**power);
+    })
+
+    return dec;
+};
+
+function decToOct (decNum) {
+    let num = decNum;
+    let octArr = [];
+
+    while (num != 0) {
+        octArr.push((num % 8).toString());
+        num = Math.floor(num/8);
+    }
+    
+    const octArrReversed = octArr.reverse();
+    const octString = octArrReversed.join('');
+
+    return octString;
+};
 
 function binToHex (binNum) {
     return decToHex(binToDec(binNum));
-}
+};
 
 function hexToBin (hexNum) {
     return decToBin(hexToDec(hexNum));
-}
+};
 
-export { binToDec, decToBin, decToHex, hexToDec, binToHex, hexToBin };
+function binToOct (binNum) {
+    return decToOct(binToDec(binNum));
+};
+
+function hexToOct (hexNum) {
+    return decToOct(hexToDec(hexNum));
+};
+
+function octToBin (octNum) {
+    return decToBin(octToDec(octNum));
+};
+
+function octToHex (octNum) {
+    return decToHex(octToDec(octNum))
+};
+
+export { hexToOct, binToOct, binToDec, decToBin, decToHex, hexToDec, octToDec, decToOct, binToHex, hexToBin, octToBin, octToHex };

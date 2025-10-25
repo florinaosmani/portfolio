@@ -1,0 +1,53 @@
+.form {
+    width: 50%;
+    height: 50vh;
+    margin: auto;  
+    display: flex;
+    gap: 0 5%;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.form label {
+    margin-right: 0.5rem;
+}
+
+.right button{
+    float: right;
+}
+
+.result {
+    color: red;
+    font-size: 10rem;
+    text-align: center;
+    line-height: 12rem;
+    margin-top: 3rem;
+}
+
+.options {
+    background-color: white;
+    width: 10rem;
+    border: 2px solid black;
+    border-radius: 15% / 10%;
+    padding: 1rem;
+}
+
+.options legend{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.num label{
+    display: block;
+    text-align: right;
+}
+
+.num input,
+.num button,
+.num label{
+   float: right; 
+}
+
+.num {
+    height: 100%;
+}
