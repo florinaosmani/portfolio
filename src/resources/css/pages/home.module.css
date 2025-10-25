@@ -48,10 +48,6 @@
     margin-top: 1rem;
 }
 
-.icons i {
-    font-size: 2.2rem;
-}
-
 .icons ul {
     width: 100%;
     display: flex;
@@ -59,16 +55,26 @@
 }
 
 .icons li {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
 }
 
-.icons a i {
-    color: black;
+.icons a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.icons a i:hover {
-    font-size: 2.5rem;
+.icons img {
+    width: 80%;
+    height: 80%;
+}
+
+.icons img:hover {
+    width: 100%;
+    height: 100%;
 }
 
 .skills {
@@ -284,17 +290,9 @@
         margin-top: 1.5rem;
     }
 
-    .icons i {
-        font-size: 2.7rem;
-    }
-
     .icons li {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .icons a i:hover {
-        font-size: 3rem;
+        width: 3.5rem;
+        height: 3.5rem;
     }
 }
 
@@ -320,17 +318,9 @@
         margin-top: 2rem;
     }
 
-    .icons i {
-        font-size: 3.2rem;
-    }
-
     .icons li {
-        width: 3.5rem;
-        height: 3.5rem;
-    }
-
-    .icons a i:hover {
-        font-size: 3.5rem;
+        width: 4rem;
+        height: 4rem;
     }
 }
 
@@ -370,17 +360,9 @@
         margin-top: 2.5rem;
     }
 
-    .icons i {
-        font-size: 3.7rem;
-    }
-
     .icons li {
-        width: 4rem;
-        height: 4rem;
-    }
-
-    .icons a i:hover {
-        font-size: 4rem;
+        width: 4.5rem;
+        height: 4.5rem;
     }
 }
 
@@ -389,17 +371,9 @@
         margin-top: 3.5rem;
     }
 
-    .icons i {
-        font-size: 6rem;
-    }
-
     .icons li {
-        width: 5rem;
-        height: 5rem;
-    }
-
-    .icons a i:hover {
-        font-size: 6.5rem;
+        width: 5.5rem;
+        height: 5.5rem;
     }
 }
 /* warning note not needed right now*/

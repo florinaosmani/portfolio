@@ -6,6 +6,10 @@ import classes from '../resources/css/pages/home.module.css';
 
 import projectsContent from "../resources/data/projectsContent";
 
+import github from "../resources/media/github-brands-solid-full.svg";
+import linkedin from "../resources/media/linkedin-brands-solid-full.svg";
+import email from "../resources/media/envelope-solid-full.svg";
+
 function Home () {
     
     useEffect(()=>{
@@ -146,17 +150,17 @@ function Home () {
                         <ul>
                             <li>
                                 <a href='https://www.linkedin.com/in/florina-osmani-677b78262/' target='_blank'>
-                                    <i className="fa-brands fa-linkedin"></i>
+                                    <img src={linkedin} alt="Image of LinkedIn Icon" />
                                 </a>
                             </li>
                             <li>
                                 <a href='https://github.com/florinaosmani' target='_blank'>
-                                    <i className="fa-brands fa-github"></i>
+                                    <img src={github} alt="Image of Github Icon"/>
                                 </a>
                             </li>
                             <li>
                                 <a href='mailto:florina.osmani@hotmail.com'>
-                                    <i className="fa-solid fa-envelope"></i>
+                                    <img src={email} alt="Image of an envelope"/>
                                 </a>
                             </li>
                         </ul>
