@@ -179,6 +179,9 @@ function Home () {
                             <li>
                                 JavaScript
                             </li>
+                            <li>
+                                Java
+                            </li>
                         </ul>
                         <ul className={classes.rightList}>
                             <li>
@@ -186,6 +189,9 @@ function Home () {
                             </li>
                             <li>
                                 Basics of Web Accessibility
+                            </li>
+                            <li>
+                                MySQL
                             </li>
                         </ul>
                     </div>
